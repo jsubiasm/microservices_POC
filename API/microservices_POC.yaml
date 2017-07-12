@@ -1,21 +1,15 @@
 swagger: '2.0'
 info:
   version: '1.0'
-  title: Hello World API
+  title: Hola Mundo API
 paths:
-  '/hello/{user}':
+  /holamundo:
     get:
-      description: Returns a greeting to the user!
-      parameters:
-        - name: user
-          in: path
-          type: string
-          required: true
-          description: The name of the user to greet.
+      description: Devuelve un Hola Mundo !!!
       responses:
         '200':
-          description: Returns the greeting.
+          description: Response OK
           schema:
             type: string
-        '400':
-          description: Invalid characters in "user" were provided.
+          examples:
+            response: Hola Mundo !!!
