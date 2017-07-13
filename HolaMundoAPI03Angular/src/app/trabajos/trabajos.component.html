@@ -1,0 +1,24 @@
+<div class="container-fluid">
+	<div class="row">
+
+		<nav class="col-sm-3 col-md-2 bg-faded">
+			<ul class="nav nav-pills flex-column">
+				<!--
+				<li class="nav-item"><a class="nav-link active" href="#">Capgemini<span class="sr-only">(current)</span></a></li>
+				<li class="nav-item"><a class="nav-link" href="#">Sopra</a></li>
+				<li class="nav-item"><a class="nav-link" href="#">SIA</a></li>
+				-->
+				<li *ngFor="let item of sidebarItemArray" (click)="onSelect(item)">
+					<a class="nav-link" href="#" routerLink="{{item.name}}" [class.active]="item === sidebarItemSelected">
+						{{item.name}}<span *ngIf="item === sidebarItemSelected" class="sr-only">(current)</span>
+					</a>
+				</li>				
+			</ul>
+		</nav>
+		
+		<main class="col-sm-9 col-md-10">
+			<router-outlet></router-outlet>
+		</main>
+
+	</div>
+</div>
