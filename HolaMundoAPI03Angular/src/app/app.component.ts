@@ -12,12 +12,16 @@ export class AppComponent implements OnInit {
 
     constructor( private api: DefaultApi ) { }
 
-    title: string;
+    holamundo;
+    holamundo2;
 
     ngOnInit(): void {
 
-        this.api.holamundoGet().subscribe(res => {this.title = res; });
-        console.log('HolaMundoAPI [' +  this.title  + ']');
+        this.api.holamundoGet().subscribe( response => { this.holamundo = response; });
+        console.log( 'holamundo [' + this.holamundo + ']' );
+
+        this.api.holamundo2Get().subscribe( response => { this.holamundo2 = response.palabra01 + " " + response.palabra02; });
+        console.log( 'holamundo2 [' + this.holamundo + ']' );
 
     }
 
