@@ -13,29 +13,18 @@ import springfox.documentation.spring.web.plugins.Docket;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-14T09:18:45.553Z")
 
 @Configuration
-public class SwaggerDocumentationConfig {
+public class SwaggerDocumentationConfig
+{
 
-    ApiInfo apiInfo() {
-        return new ApiInfoBuilder()
-            .title("Hola Mundo API")
-            .description("Probando swagger con Hola Mundo API")
-            .license("")
-            .licenseUrl("http://unlicense.org")
-            .termsOfServiceUrl("")
-            .version("1.0")
-            .contact(new Contact("","", ""))
-            .build();
-    }
+	ApiInfo apiInfo()
+	{
+		return new ApiInfoBuilder().title("Hola Mundo API").description("Probando swagger con Hola Mundo API").license("").licenseUrl("http://unlicense.org").termsOfServiceUrl("").version("1.0").contact(new Contact("", "", "")).build();
+	}
 
-    @Bean
-    public Docket customImplementation(){
-        return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                    .apis(RequestHandlerSelectors.basePackage("io.swagger.api"))
-                    .build()
-                .directModelSubstitute(org.joda.time.LocalDate.class, java.sql.Date.class)
-                .directModelSubstitute(org.joda.time.DateTime.class, java.util.Date.class)
-                .apiInfo(apiInfo());
-    }
+	@Bean
+	public Docket customImplementation()
+	{
+		return new Docket(DocumentationType.SWAGGER_2).select().apis(RequestHandlerSelectors.basePackage("io.swagger.api")).build().directModelSubstitute(org.joda.time.LocalDate.class, java.sql.Date.class).directModelSubstitute(org.joda.time.DateTime.class, java.util.Date.class).apiInfo(apiInfo());
+	}
 
 }

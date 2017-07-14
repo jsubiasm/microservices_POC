@@ -5,7 +5,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-14T09:18:45.553Z")
 
 @javax.xml.bind.annotation.XmlRootElement
-public class ApiResponseMessage {
+public class ApiResponseMessage
+{
 	public static final int ERROR = 1;
 	public static final int WARNING = 2;
 	public static final int INFO = 3;
@@ -15,12 +16,16 @@ public class ApiResponseMessage {
 	int code;
 	String type;
 	String message;
-	
-	public ApiResponseMessage(){}
-	
-	public ApiResponseMessage(int code, String message){
+
+	public ApiResponseMessage()
+	{
+	}
+
+	public ApiResponseMessage(int code, String message)
+	{
 		this.code = code;
-		switch(code){
+		switch (code)
+		{
 		case ERROR:
 			setType("error");
 			break;
@@ -44,27 +49,33 @@ public class ApiResponseMessage {
 	}
 
 	@XmlTransient
-	public int getCode() {
+	public int getCode()
+	{
 		return code;
 	}
 
-	public void setCode(int code) {
+	public void setCode(int code)
+	{
 		this.code = code;
 	}
 
-	public String getType() {
+	public String getType()
+	{
 		return type;
 	}
 
-	public void setType(String type) {
+	public void setType(String type)
+	{
 		this.type = type;
 	}
 
-	public String getMessage() {
+	public String getMessage()
+	{
 		return message;
 	}
 
-	public void setMessage(String message) {
+	public void setMessage(String message)
+	{
 		this.message = message;
 	}
 }
