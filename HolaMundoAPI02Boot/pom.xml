@@ -14,7 +14,7 @@
 		<springfox-version>2.5.0</springfox-version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-		<start-class>com.mycorp.starter.HelloWorldApplication</start-class>
+		<start-class>io.swagger.Swagger2SpringBoot</start-class>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
