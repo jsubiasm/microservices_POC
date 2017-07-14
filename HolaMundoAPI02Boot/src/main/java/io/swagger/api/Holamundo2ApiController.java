@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import io.swagger.model.InlineResponse200;
 
 import io.swagger.annotations.*;
 
@@ -19,13 +20,13 @@ import javax.validation.constraints.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-14T09:18:45.553Z")
 
 @Controller
-public class HolamundoApiController implements HolamundoApi {
+public class Holamundo2ApiController implements Holamundo2Api {
 
 
 
-    public ResponseEntity<String> holamundoGet() {
+    public ResponseEntity<InlineResponse200> holamundo2Get() {
         // do some magic!
-        return new ResponseEntity<String>(HttpStatus.OK);
+        return new ResponseEntity<InlineResponse200>(HttpStatus.OK);
     }
 
 }

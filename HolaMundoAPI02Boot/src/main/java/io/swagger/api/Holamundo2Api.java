@@ -1,5 +1,6 @@
 package io.swagger.api;
 
+import io.swagger.model.InlineResponse200;
 
 import io.swagger.annotations.*;
 import org.springframework.http.ResponseEntity;
@@ -16,14 +17,17 @@ import java.util.List;
 import javax.validation.constraints.*;
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-14T09:18:45.553Z")
 
-@Api(value = "holamundo", description = "the holamundo API")
-public interface HolamundoApi {
+@Api(value = "holamundo2", description = "the holamundo2 API")
+public interface Holamundo2Api {
 
-    @ApiOperation(value = "", notes = "Devuelve un Hola Mundo", response = String.class, tags={  })
+    @ApiOperation(value = "Devuelve un Hola Mundo", notes = "endpoint que devuelve un Hola Mundo", response = InlineResponse200.class, tags={  })
     @ApiResponses(value = { 
-        @ApiResponse(code = 200, message = "Response OK", response = String.class) })
-    @RequestMapping(value = "/holamundo",
+        @ApiResponse(code = 200, message = "Response OK", response = InlineResponse200.class),
+        @ApiResponse(code = 200, message = "Unexpected error", response = InlineResponse200.class) })
+    @RequestMapping(value = "/holamundo2",
+        produces = { "application/json" }, 
+        consumes = { "application/json" },
         method = RequestMethod.GET)
-    ResponseEntity<String> holamundoGet();
+    ResponseEntity<InlineResponse200> holamundo2Get();
 
 }

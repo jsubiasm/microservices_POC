@@ -2,14 +2,53 @@ swagger: '2.0'
 info:
   version: '1.0'
   title: Hola Mundo API
+  description: Probando swagger con Hola Mundo API
+host: '192.168.56.101:8443'
+basePath: /v1
+schemes:
+  - http
+  - https
 paths:
   /holamundo:
     get:
-      description: Devuelve un Hola Mundo !!!
+      description: Devuelve un Hola Mundo
       responses:
         '200':
           description: Response OK
           schema:
             type: string
           examples:
-            response: Hola Mundo !!!
+            response: Hola Mundo
+  /holamundo2:
+    get:
+      summary: Devuelve un Hola Mundo
+      description: endpoint que devuelve un Hola Mundo
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      responses:
+        '200':
+          description: Response OK
+          headers:
+            Access-Control-Allow-Origin:
+              type: string
+              default: '*'
+          schema:
+            $ref: '#/definitions/Saludo'
+          examples:
+            response: Hola Mundo
+        default:
+          description: Unexpected error
+definitions:
+  Saludo:
+    properties:
+      palabra01:
+        type: string
+        example: Hola
+      palabra02:
+        type: string
+        example: Mundo
+    required:
+      - palabra01
+      - palabra02
