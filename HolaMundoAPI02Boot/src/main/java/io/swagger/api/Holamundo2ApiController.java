@@ -14,7 +14,9 @@ public class Holamundo2ApiController implements Holamundo2Api
 
 	public ResponseEntity<InlineResponse200> holamundo2Get()
 	{
-		// do some magic!
+		InlineResponse200 response = new InlineResponse200();
+		response.setPalabra01("Hola");
+		response.setPalabra02("Mundo");
 		return new ResponseEntity<InlineResponse200>(HttpStatus.OK);
 	}
 

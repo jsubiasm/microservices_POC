@@ -27,7 +27,7 @@ import { Configuration }                                     from '../configurat
 
 @Injectable()
 export class DefaultApi {
-    protected basePath = 'http://192.168.56.101:8443/v1';
+    protected basePath = 'http://localhost:8443/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
@@ -65,7 +65,7 @@ export class DefaultApi {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.text();
                 }
             });
     }

@@ -1,6 +1,7 @@
 package io.swagger.api;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,7 +15,7 @@ import io.swagger.annotations.ApiResponses;
 @Api(value = "holamundo", description = "the holamundo API")
 public interface HolamundoApi
 {
-
+	@CrossOrigin
 	@ApiOperation(value = "", notes = "Devuelve un Hola Mundo", response = String.class, tags = {})
 	@ApiResponses(value = { @ApiResponse(code = 200, message = "Response OK", response = String.class) })
 	@RequestMapping(value = "/holamundo", method = RequestMethod.GET)

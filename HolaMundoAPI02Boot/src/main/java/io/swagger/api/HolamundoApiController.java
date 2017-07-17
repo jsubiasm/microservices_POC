@@ -12,8 +12,7 @@ public class HolamundoApiController implements HolamundoApi
 
 	public ResponseEntity<String> holamundoGet()
 	{
-		// do some magic!
-		return new ResponseEntity<String>(HttpStatus.OK);
+		return new ResponseEntity<String>("Hello World", HttpStatus.OK);
 	}
 
 }
