@@ -11,7 +11,7 @@ import io.swagger.annotations.ApiModelProperty;
 /**
  * InlineResponse200
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-14T09:18:45.553Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-17T11:08:28.154Z")
 
 public class InlineResponse200
 {
@@ -34,6 +34,7 @@ public class InlineResponse200
 	 **/
 	@ApiModelProperty(example = "Hola", required = true, value = "")
 	@NotNull
+
 	public String getPalabra01()
 	{
 		return palabra01;
@@ -57,6 +58,7 @@ public class InlineResponse200
 	 **/
 	@ApiModelProperty(example = "Mundo", required = true, value = "")
 	@NotNull
+
 	public String getPalabra02()
 	{
 		return palabra02;

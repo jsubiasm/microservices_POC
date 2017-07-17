@@ -14,16 +14,15 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import io.swagger.model.InlineResponse200;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-17T11:08:28.154Z")
 
-@Api(value = "holamundo", description = "the holamundo API")
-public interface HolamundoApi
+@Api(value = "helloworld", description = "the helloworld API")
+public interface HelloworldApi
 {
 	@CrossOrigin(origins = "*")
-	@ApiOperation(value = "Devuelve un Hola Mundo", notes = "Endpoint que devuelve un Hola Mundo", response = InlineResponse200.class, tags = {})
-	@ApiResponses(value = { @ApiResponse(code = 200, message = "Response OK", response = InlineResponse200.class) })
-	@RequestMapping(value = "/holamundo", method = RequestMethod.GET)
-	ResponseEntity<InlineResponse200> holamundoGet();
+	@ApiOperation(value = "Devuelve un Hello World", notes = "Endpoint que devuelve un Hello World", response = String.class, tags = {})
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Response OK", response = String.class) })
+	@RequestMapping(value = "/helloworld", method = RequestMethod.GET)
+	ResponseEntity<String> helloworldGet();
 }

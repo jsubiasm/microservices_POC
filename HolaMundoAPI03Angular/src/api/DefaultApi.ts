@@ -10,6 +10,8 @@
  * Do not edit the class manually.
  */
 
+/* tslint:disable:no-unused-variable member-ordering */
+
 import { Inject, Injectable, Optional }                      from '@angular/core';
 import { Http, Headers, URLSearchParams }                    from '@angular/http';
 import { RequestMethod, RequestOptions, RequestOptionsArgs } from '@angular/http';
@@ -22,12 +24,11 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-/* tslint:disable:no-unused-variable member-ordering */
-
 
 @Injectable()
 export class DefaultApi {
-    protected basePath = 'http://localhost:8443/v1';
+
+    protected basePath = 'http://localhost:8080/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
@@ -41,61 +42,59 @@ export class DefaultApi {
     }
 
     /**
-     * Devuelve un Hola Mundo
-     * endpoint que devuelve un Hola Mundo
+     * Endpoint que devuelve un Hello World
+     * @summary Devuelve un Hello World
      */
-    public holamundo2Get(extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
-        return this.holamundo2GetWithHttpInfo(extraHttpRequestParams)
+    public helloworldGet(extraHttpRequestParams?: any): Observable<string> {
+        return this.helloworldGetWithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.json();
+                    return response.text() || {};
                 }
             });
     }
 
     /**
-     * 
-     * Devuelve un Hola Mundo
+     * Endpoint que devuelve un Hola Mundo
+     * @summary Devuelve un Hola Mundo
      */
-    public holamundoGet(extraHttpRequestParams?: any): Observable<string> {
+    public holamundoGet(extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.holamundoGetWithHttpInfo(extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
                     return undefined;
                 } else {
-                    return response.text();
+                    return response.json() || {};
                 }
             });
     }
 
 
     /**
-     * Devuelve un Hola Mundo
-     * endpoint que devuelve un Hola Mundo
+     * Devuelve un Hello World
+     * Endpoint que devuelve un Hello World
      */
-    public holamundo2GetWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/holamundo2`;
+    public helloworldGetWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
+        const path = this.basePath + '/helloworld';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
         // to determine the Content-Type header
         let consumes: string[] = [
-            'application/json'
         ];
 
         // to determine the Accept header
         let produces: string[] = [
-            'application/json'
         ];
 
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
@@ -105,11 +104,11 @@ export class DefaultApi {
     }
 
     /**
-     * 
      * Devuelve un Hola Mundo
+     * Endpoint que devuelve un Hola Mundo
      */
     public holamundoGetWithHttpInfo(extraHttpRequestParams?: any): Observable<Response> {
-        const path = this.basePath + `/holamundo`;
+        const path = this.basePath + '/holamundo';
 
         let queryParameters = new URLSearchParams();
         let headers = new Headers(this.defaultHeaders.toJSON()); // https://github.com/angular/angular/issues/6845
@@ -124,9 +123,9 @@ export class DefaultApi {
         let requestOptions: RequestOptionsArgs = new RequestOptions({
             method: RequestMethod.Get,
             headers: headers,
-            search: queryParameters
+            search: queryParameters,
+            withCredentials:this.configuration.withCredentials
         });
-
         // https://github.com/swagger-api/swagger-codegen/issues/4037
         if (extraHttpRequestParams) {
             requestOptions = (<any>Object).assign(requestOptions, extraHttpRequestParams);
