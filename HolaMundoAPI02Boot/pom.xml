@@ -15,6 +15,8 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<start-class>io.swagger.Swagger2SpringBoot</start-class>
+		<docker.image.prefix>jsubiasm</docker.image.prefix>
+		<docker.image.name>microservices_poc</docker.image.name>
 	</properties>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -35,6 +37,15 @@
 						</goals>
 					</execution>
 				</executions>
+			</plugin>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<imageName>${docker.image.prefix}/${docker.image.name}</imageName>
+					<dockerDirectory>/home/jsubiasm/microservices_POC/docker</dockerDirectory>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
