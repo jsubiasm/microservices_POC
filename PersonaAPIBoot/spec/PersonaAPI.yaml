@@ -1,0 +1,155 @@
+swagger: '2.0'
+info:
+  description: Prueba de concepto de un API RESTful.
+  version: 1.0.0
+  title: Prueba Concepto API RESTful
+  termsOfService: ''
+  contact:
+    email: jotasumin@gmail.com
+  license:
+    name: ''
+    url: 'http://'
+host: 'localhost:8080'
+basePath: /v1
+tags:
+  - name: Personas
+    description: Ejemplo CRUD de personas
+    externalDocs:
+      description: Find out more
+      url: 'http://swagger.io'
+schemes:
+  - http
+  - https
+paths:
+  /persona:
+    post:
+      tags:
+        - Personas
+      summary: Añade una nueva persona
+      description: Añade una nueva persona
+      operationId: addPersona
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: addPersonaBody
+          description: Datos de la persona
+          required: true
+          schema:
+            $ref: '#/definitions/Persona'
+      responses:
+        '405':
+          description: Error de validación de datos
+    put:
+      tags:
+        - Personas
+      summary: Modifica una persona ya existente
+      description: Modifica una persona ya existente
+      operationId: updatePersona
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - in: body
+          name: updatePersonaBody
+          description: Datos de la persona
+          required: true
+          schema:
+            $ref: '#/definitions/Persona'
+      responses:
+        '400':
+          description: Identificador no válido
+        '404':
+          description: Persona no encontrada
+        '405':
+          description: Error de validación de datos
+  /persona/findAll:
+    get:
+      tags:
+        - Personas
+      summary: Devuelve todas las personas
+      description: Devuelve todas las personas
+      operationId: findAllPersonas
+      produces:
+        - application/xml
+        - application/json
+      responses:
+        '200':
+          description: operación correcta
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Persona'
+  '/persona/{idPersona}':
+    get:
+      tags:
+        - Personas
+      summary: Devuelve una persona por su ID
+      description: Devuelve una persona por su ID
+      operationId: getPersonaPorId
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: idPersona
+          in: path
+          description: ID de la persona
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '200':
+          description: operacion correcta
+          schema:
+            $ref: '#/definitions/Persona'
+        '400':
+          description: Identificador no válido
+        '404':
+          description: Persona no encontrada
+    delete:
+      tags:
+        - Personas
+      summary: Elimina una persona
+      description: Elimina una persona
+      operationId: deletePersona
+      produces:
+        - application/xml
+        - application/json
+      parameters:
+        - name: idPersona
+          in: path
+          description: ID de la persona
+          required: true
+          type: integer
+          format: int64
+      responses:
+        '400':
+          description: Identificador no válido
+        '404':
+          description: Persona no encontrada
+definitions:
+  Persona:
+    type: object
+    required:
+      - nombre
+      - profesion
+    properties:
+      id:
+        type: integer
+        format: int64
+      nombre:
+        type: string
+        example: Julio
+      profesion:
+        type: string
+        example: Fontanero
+externalDocs:
+  description: Find out more about Swagger
+  url: 'http://swagger.io'
