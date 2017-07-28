@@ -1,35 +1,26 @@
-
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-sm-12">
-			<h1>{{title}}</h1>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					<h4>
+						<strong>Prueba caracteres á, é, í, ó, ú, ñ, €</strong>
+					</h4>
+				</div>
+			</div>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-sm-4">
-			<div class="row">
-				<div class="col-sm-12">
-					<app-add-persona>app-add-persona...</app-add-persona>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h5>Modificar Persona</h5>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h5>Buscar Persona</h5>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-sm-12">
-					<h5>Borrar Persona</h5>
-				</div>
-			</div>		
+			<app-add-persona>app-add-persona...</app-add-persona>
+			<app-update-persona>app-update-persona...</app-update-persona>
 		</div>
-		<div class="col-sm-8">
-			<h5>Listado Personas</h5>
+		<div class="col-sm-4">
+			<app-find-persona>app-find-persona...</app-find-persona>
+			<app-delete-persona>app-delete-persona...</app-delete-persona>
+		</div>
+		<div class="col-sm-4">
+			<app-list-personas>app-list-personas...</app-list-personas>
 		</div>
 	</div>
 </div>
