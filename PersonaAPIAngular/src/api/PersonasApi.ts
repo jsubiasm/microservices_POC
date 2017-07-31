@@ -62,7 +62,7 @@ export class PersonasApi {
      * @summary Elimina una persona
      * @param idPersona ID de la persona
      */
-    public deletePersona(idPersona: number, extraHttpRequestParams?: any): Observable<{}> {
+    public deletePersona(idPersona: string, extraHttpRequestParams?: any): Observable<{}> {
         return this.deletePersonaWithHttpInfo(idPersona, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -93,7 +93,7 @@ export class PersonasApi {
      * @summary Devuelve una persona por su ID
      * @param idPersona ID de la persona
      */
-    public getPersonaPorId(idPersona: number, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
+    public getPersonaPorId(idPersona: string, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.getPersonaPorIdWithHttpInfo(idPersona, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -169,7 +169,7 @@ export class PersonasApi {
      * Elimina una persona
      * @param idPersona ID de la persona
      */
-    public deletePersonaWithHttpInfo(idPersona: number, extraHttpRequestParams?: any): Observable<Response> {
+    public deletePersonaWithHttpInfo(idPersona: string, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/persona/${idPersona}'
                     .replace('${' + 'idPersona' + '}', String(idPersona));
 
@@ -241,7 +241,7 @@ export class PersonasApi {
      * Devuelve una persona por su ID
      * @param idPersona ID de la persona
      */
-    public getPersonaPorIdWithHttpInfo(idPersona: number, extraHttpRequestParams?: any): Observable<Response> {
+    public getPersonaPorIdWithHttpInfo(idPersona: string, extraHttpRequestParams?: any): Observable<Response> {
         const path = this.basePath + '/persona/${idPersona}'
                     .replace('${' + 'idPersona' + '}', String(idPersona));
 

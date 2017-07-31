@@ -23,7 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-27T10:17:03.704Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-31T12:03:01.289Z")
 
 @Api(value = "persona", description = "the persona API")
 public interface PersonaApi {
@@ -47,7 +47,7 @@ public interface PersonaApi {
     @RequestMapping(value = "/persona/{idPersona}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.DELETE)
-    ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") Long idPersona);
+    ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona);
 
 
     @ApiOperation(value = "Devuelve todas las personas", notes = "Devuelve todas las personas", response = InlineResponse200.class, responseContainer = "List", tags={ "Personas", })
@@ -69,7 +69,7 @@ public interface PersonaApi {
     @RequestMapping(value = "/persona/{idPersona}",
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.GET)
-    ResponseEntity<InlineResponse200> getPersonaPorId(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") Long idPersona);
+    ResponseEntity<InlineResponse200> getPersonaPorId(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona);
 
 
     @ApiOperation(value = "Modifica una persona ya existente", notes = "Modifica una persona ya existente", response = Void.class, tags={ "Personas", })

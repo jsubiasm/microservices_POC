@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface Persona {
-    id?: number;
+    id?: string;
 
     nombre: string;
 

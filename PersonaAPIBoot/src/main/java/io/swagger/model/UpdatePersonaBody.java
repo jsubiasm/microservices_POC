@@ -11,11 +11,11 @@ import javax.validation.constraints.*;
 /**
  * UpdatePersonaBody
  */
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-27T10:17:03.704Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-31T12:03:01.289Z")
 
 public class UpdatePersonaBody   {
   @JsonProperty("id")
-  private Long id = null;
+  private String id = null;
 
   @JsonProperty("nombre")
   private String nombre = null;
@@ -23,7 +23,7 @@ public class UpdatePersonaBody   {
   @JsonProperty("profesion")
   private String profesion = null;
 
-  public UpdatePersonaBody id(Long id) {
+  public UpdatePersonaBody id(String id) {
     this.id = id;
     return this;
   }
@@ -32,14 +32,14 @@ public class UpdatePersonaBody   {
    * Get id
    * @return id
   **/
-  @ApiModelProperty(value = "")
+  @ApiModelProperty(example = "a1b2", value = "")
 
 
-  public Long getId() {
+  public String getId() {
     return id;
   }
 
-  public void setId(Long id) {
+  public void setId(String id) {
     this.id = id;
   }
 

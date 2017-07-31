@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface UpdatePersonaBody {
-    id?: number;
+    id?: string;
 
     nombre: string;
 

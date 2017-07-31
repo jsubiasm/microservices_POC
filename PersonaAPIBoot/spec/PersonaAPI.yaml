@@ -102,8 +102,7 @@ paths:
           in: path
           description: ID de la persona
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '200':
           description: operacion correcta
@@ -127,8 +126,7 @@ paths:
           in: path
           description: ID de la persona
           required: true
-          type: integer
-          format: int64
+          type: string
       responses:
         '400':
           description: Identificador no válido
@@ -142,8 +140,8 @@ definitions:
       - profesion
     properties:
       id:
-        type: integer
-        format: int64
+        type: string
+        example: a1b2
       nombre:
         type: string
         example: Julio

@@ -13,7 +13,7 @@
 import * as models from './models';
 
 export interface InlineResponse200 {
-    id?: number;
+    id?: string;
 
     nombre: string;
 

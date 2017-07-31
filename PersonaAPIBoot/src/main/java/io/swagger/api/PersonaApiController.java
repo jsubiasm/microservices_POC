@@ -36,7 +36,7 @@ public class PersonaApiController implements PersonaApi {
         return apiImpl.addPersona(addPersonaBody);
     }
 
-    public ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") Long idPersona) {
+    public ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona) {
         // do some magic!
         return apiImpl.deletePersona(idPersona);
     }
@@ -46,7 +46,7 @@ public class PersonaApiController implements PersonaApi {
         return apiImpl.findAllPersonas();
     }
 
-    public ResponseEntity<InlineResponse200> getPersonaPorId(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") Long idPersona) {
+    public ResponseEntity<InlineResponse200> getPersonaPorId(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona) {
         // do some magic!
         return apiImpl.getPersonaPorId(idPersona);
     }
