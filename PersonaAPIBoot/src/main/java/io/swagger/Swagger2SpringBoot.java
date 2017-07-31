@@ -5,12 +5,14 @@ import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableSwagger2
-@ComponentScan(basePackages = { "io.swagger", "io.swagger.api" })
+@ComponentScan(basePackages = { "io" })
+@EnableMongoRepositories(basePackages = { "io" })
 public class Swagger2SpringBoot implements CommandLineRunner {
 
     @Override
