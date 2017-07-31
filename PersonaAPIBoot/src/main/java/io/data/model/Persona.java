@@ -10,7 +10,7 @@ public class Persona
 {
 
 	@Id
-	public Long id;
+	public String id;
 
 	/**
 	 * 
@@ -30,7 +30,7 @@ public class Persona
 	 * @param nombre
 	 * @param profesion
 	 */
-	public Persona(Long id, String nombre, String profesion)
+	public Persona(String id, String nombre, String profesion)
 	{
 		super();
 		this.id = id;
@@ -41,7 +41,7 @@ public class Persona
 	/**
 	 * @return the id
 	 */
-	public Long getId()
+	public String getId()
 	{
 		return id;
 	}
@@ -50,7 +50,7 @@ public class Persona
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Long id)
+	public void setId(String id)
 	{
 		this.id = id;
 	}

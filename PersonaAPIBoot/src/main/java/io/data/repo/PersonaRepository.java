@@ -10,14 +10,14 @@ import io.data.model.Persona;
  * @author Empleado
  *
  */
-public interface PersonaRepository extends MongoRepository<Persona, Long>
+public interface PersonaRepository extends MongoRepository<Persona, String>
 {
 
 	/**
 	 * @param id
 	 * @return
 	 */
-	public Persona findById(Long id);
+	public Persona findById(String id);
 
 	/**
 	 * @param nombre

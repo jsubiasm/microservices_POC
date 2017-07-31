@@ -65,10 +65,10 @@ public class PersonaApiControllerImpl implements PersonaApi
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see io.swagger.api.PersonaApi#deletePersona(java.lang.Long)
+	 * @see io.swagger.api.PersonaApi#deletePersona(java.lang.String)
 	 */
 	@Override
-	public ResponseEntity<Void> deletePersona(Long idPersona)
+	public ResponseEntity<Void> deletePersona(String idPersona)
 	{
 		repository.delete(idPersona);
 		return new ResponseEntity<Void>(HttpStatus.OK);
@@ -98,10 +98,10 @@ public class PersonaApiControllerImpl implements PersonaApi
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @see io.swagger.api.PersonaApi#getPersonaPorId(java.lang.Long)
+	 * @see io.swagger.api.PersonaApi#getPersonaPorId(java.lang.String)
 	 */
 	@Override
-	public ResponseEntity<InlineResponse200> getPersonaPorId(Long idPersona)
+	public ResponseEntity<InlineResponse200> getPersonaPorId(String idPersona)
 	{
 		Persona persona = repository.findById(idPersona);
 		InlineResponse200 respBody = new InlineResponse200();
