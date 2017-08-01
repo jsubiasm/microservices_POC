@@ -1,0 +1,72 @@
+inspeccionar objetos docker:
+	docker inspect <OBJECT-NAME>
+	
+ejecutar comando en contenedor:
+	docker exec <CONTAINER-NAME> <COMMAND>
+	
+ver logs de contenedor:
+	 docker logs -f <CONTAINER-NAME>
+
+listado de imagenes:
+	docker images
+
+listado de contenedores (-a=todos):
+	docker ps -a
+	
+ejecutar imagen:
+	docker run <IMG-NAME>
+	
+construir imagen desde Dockerfile (-t=nombre imagen, .=ruta del Dockerfile):
+	docker build -t <IMG-NAME> .
+
+etiquetar imagen para subir a dockerhub:
+	docker tag <TAG-NAME>
+	
+identificarse en dockerhub:
+	docker login
+	
+subir imagen a dockerub:
+	docker push <IMG-NAME>
+	
+borrar imagen local (dos opciones):
+	docker rmi -f <IMG-NAME>
+	docker image rm -f <IMG-NAME>
+	
+listado de redes docker:
+	docker network ls
+	
+inspeccionar red:
+	docker network inspect <NETWORK-NAME>
+	
+conectar contenedor a una red:
+	docker network connect <NETWORK-NAME> <CONTAINER-NAME>
+	
+desconectar contenedor de una red:
+	docker network disconnect <NETWORK-NAME> <CONTAINER-NAME>
+	
+crear nueva red (-d=especificar driver).
+	docker network create -d bridge <NETWORK-NAME>
+
+inicializar swarm:
+	docker swarm init --advertise-addr <MANAGER-IP>
+	
+abandonar swarm:
+	docker swarm leave
+	
+listado de nodos del swarm:
+	docker node ls
+
+desplegar stack:
+	docker stack deploy --compose-file <YML-FILE> <APP-NAME>
+	
+listado de stacks:
+	docker stack ls
+	
+borra stack:
+	docker stack rm <APP-NAME>
+	
+listado de servicios de un stack:
+	docker stack services <APP-NAME>
+	
+borrar stack:
+	docker stack rm <APP-NAME>
