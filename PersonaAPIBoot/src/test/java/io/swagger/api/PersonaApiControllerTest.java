@@ -1,16 +1,22 @@
 package io.swagger.api;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import io.swagger.model.AddPersonaBody;
+import io.swagger.model.InlineResponse200;
+import io.swagger.model.UpdatePersonaBody;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -20,37 +26,70 @@ public class PersonaApiControllerTest
 	@Autowired
 	private PersonaApiController api;
 
-	@Test
-	public void addPersona()
-	{
-		AddPersonaBody reqBody = new AddPersonaBody();
-		reqBody.setNombre("Julio");
-		reqBody.setProfesion("Fontanero");
-		ResponseEntity<Void> response = api.addPersona(reqBody);
-		assertEquals(200, response.getStatusCodeValue());
-	}
+	/**
+	 * 
+	 */
+	private final static Logger LOGGER = LoggerFactory.getLogger(PersonaApiControllerTest.class);
 
 	@Test
-	public void deletePersona()
+	public void fullTest()
 	{
-		assertTrue(true);
+		try
+		{
+			String nombre1 = "Julio";
+			String nombre2 = "Antonio";
+			String profesion1 = "Fontanero";
+			String profesion2 = "Electricista";
+
+			ResponseEntity<List<InlineResponse200>> response1 = api.findAllPersonas();
+			LOGGER.info("Tamaño inicial lista [" + response1.getBody().size() + "]");
+			assertEquals(200, response1.getStatusCodeValue());
+			assertEquals(0, response1.getBody().size());
+
+			AddPersonaBody addPersonaBody = new AddPersonaBody();
+			addPersonaBody.setNombre(nombre1);
+			addPersonaBody.setProfesion(profesion1);
+			ResponseEntity<Void> response2 = api.addPersona(addPersonaBody);
+			LOGGER.info("Persona insertada [" + nombre1 + "] [" + profesion1 + "]");
+			assertEquals(200, response2.getStatusCodeValue());
+
+			ResponseEntity<List<InlineResponse200>> response3 = api.findAllPersonas();
+			LOGGER.info("Tamaño lista [" + response3.getBody().size() + "]");
+			assertEquals(200, response3.getStatusCodeValue());
+			assertEquals(1, response3.getBody().size());
+
+			String idPersona = response3.getBody().get(0).getId();
+			LOGGER.info("Recuperado identificador de persona [" + idPersona + "]");
+			assertNotNull(idPersona);
+
+			UpdatePersonaBody updatePersonaBody = new UpdatePersonaBody();
+			updatePersonaBody.setId(idPersona);
+			updatePersonaBody.setNombre(nombre2);
+			updatePersonaBody.setProfesion(profesion2);
+			ResponseEntity<Void> response4 = api.updatePersona(updatePersonaBody);
+			LOGGER.info("Persona modificada [" + idPersona + "] [" + nombre2 + "] [" + profesion2 + "]");
+			assertEquals(200, response4.getStatusCodeValue());
+
+			ResponseEntity<InlineResponse200> response5 = api.getPersonaPorId(idPersona);
+			LOGGER.info("Persona encontrada [" + response5.getBody().getId() + "] [" + response5.getBody().getNombre() + "] [" + response5.getBody().getProfesion() + "]");
+			assertEquals(200, response5.getStatusCodeValue());
+			assertEquals(idPersona, response5.getBody().getId());
+			assertEquals(nombre2, response5.getBody().getNombre());
+			assertEquals(profesion2, response5.getBody().getProfesion());
+
+			ResponseEntity<Void> response6 = api.deletePersona(idPersona);
+			LOGGER.info("Persona borrada [" + idPersona + "]");
+			assertEquals(200, response6.getStatusCodeValue());
+
+			ResponseEntity<List<InlineResponse200>> response7 = api.findAllPersonas();
+			LOGGER.info("Tamaño lista [" + response7.getBody().size() + "]");
+			assertEquals(200, response7.getStatusCodeValue());
+			assertEquals(response1.getBody().size(), response7.getBody().size());
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Error ejecutando test", e);
+		}
 	}
 
-	@Test
-	public void findAllPersonas()
-	{
-		assertTrue(true);
-	}
-
-	@Test
-	public void getPersonaPorId()
-	{
-		assertTrue(true);
-	}
-
-	@Test
-	public void updatePersona()
-	{
-		assertTrue(true);
-	}
 }

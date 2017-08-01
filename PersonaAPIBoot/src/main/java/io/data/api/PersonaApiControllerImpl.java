@@ -42,73 +42,24 @@ public class PersonaApiControllerImpl implements PersonaApi
 	@Override
 	public ResponseEntity<Void> addPersona(AddPersonaBody addPersonaBody)
 	{
+		LOGGER.info("Insertando persona [" + addPersonaBody.getNombre() + "] [" + addPersonaBody.getProfesion() + "]");
+		ResponseEntity<Void> response = null;
 		try
 		{
-			LOGGER.info("Insertando persona...");
 			Persona persona = new Persona();
 			persona.setNombre(addPersonaBody.getNombre());
 			persona.setProfesion(addPersonaBody.getProfesion());
 			repository.insert(persona);
-			return new ResponseEntity<Void>(HttpStatus.OK);
+			response = new ResponseEntity<Void>(HttpStatus.OK);
+			LOGGER.info("Persona insertada");
 		}
 		catch (Exception e)
 		{
 			LOGGER.error("Error insertando persona", e);
-			return new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		finally
-		{
-			LOGGER.info("Fin inserción persona.");
-		}
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see io.swagger.api.PersonaApi#deletePersona(java.lang.String)
-	 */
-	@Override
-	public ResponseEntity<Void> deletePersona(String idPersona)
-	{
-		repository.delete(idPersona);
-		return new ResponseEntity<Void>(HttpStatus.OK);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see io.swagger.api.PersonaApi#findAllPersonas()
-	 */
-	@Override
-	public ResponseEntity<List<InlineResponse200>> findAllPersonas()
-	{
-		List<Persona> allPersonas = repository.findAll();
-		List<InlineResponse200> respBody = new ArrayList<>();
-		for (Persona persona : allPersonas)
-		{
-			InlineResponse200 respItem = new InlineResponse200();
-			respItem.setId(persona.getId());
-			respItem.setNombre(persona.getNombre());
-			respItem.setProfesion(persona.getProfesion());
-			respBody.add(respItem);
-		}
-		return new ResponseEntity<List<InlineResponse200>>(respBody, HttpStatus.OK);
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see io.swagger.api.PersonaApi#getPersonaPorId(java.lang.String)
-	 */
-	@Override
-	public ResponseEntity<InlineResponse200> getPersonaPorId(String idPersona)
-	{
-		Persona persona = repository.findById(idPersona);
-		InlineResponse200 respBody = new InlineResponse200();
-		respBody.setId(persona.getId());
-		respBody.setNombre(persona.getNombre());
-		respBody.setProfesion(persona.getProfesion());
-		return new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
+		LOGGER.info("Fin inserción persona");
+		return response;
 	}
 
 	/*
@@ -120,12 +71,113 @@ public class PersonaApiControllerImpl implements PersonaApi
 	@Override
 	public ResponseEntity<Void> updatePersona(UpdatePersonaBody updatePersonaBody)
 	{
-		Persona persona = new Persona();
-		persona.setId(updatePersonaBody.getId());
-		persona.setNombre(updatePersonaBody.getNombre());
-		persona.setProfesion(updatePersonaBody.getProfesion());
-		repository.save(persona);
-		return new ResponseEntity<Void>(HttpStatus.OK);
+		LOGGER.info("Modificando persona [" + updatePersonaBody.getId() + "] [" + updatePersonaBody.getNombre() + "] [" + updatePersonaBody.getProfesion() + "]");
+		ResponseEntity<Void> response = null;
+		try
+		{
+			Persona persona = new Persona();
+			persona.setId(updatePersonaBody.getId());
+			persona.setNombre(updatePersonaBody.getNombre());
+			persona.setProfesion(updatePersonaBody.getProfesion());
+			repository.save(persona);
+			response = new ResponseEntity<Void>(HttpStatus.OK);
+			LOGGER.info("Persona modificada");
+		}
+		catch (Exception e)
+		{
+			LOGGER.error("Error modificando persona", e);
+			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOGGER.info("Fin modificación persona");
+		return response;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see io.swagger.api.PersonaApi#deletePersona(java.lang.String)
+	 */
+	@Override
+	public ResponseEntity<Void> deletePersona(String idPersona)
+	{
+		LOGGER.info("Borrando persona [" + idPersona + "]");
+		ResponseEntity<Void> response = null;
+		try
+		{
+			repository.delete(idPersona);
+			response = new ResponseEntity<Void>(HttpStatus.OK);
+			LOGGER.info("Persona borrada");
+		}
+		catch (Exception e)
+		{
+			LOGGER.info("Error borrando persona");
+			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOGGER.info("Fin borrado persona");
+		return response;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see io.swagger.api.PersonaApi#findAllPersonas()
+	 */
+	@Override
+	public ResponseEntity<List<InlineResponse200>> findAllPersonas()
+	{
+		LOGGER.info("Buscando todas las personas");
+		ResponseEntity<List<InlineResponse200>> response = null;
+		try
+		{
+			List<Persona> allPersonas = repository.findAll();
+			List<InlineResponse200> respBody = new ArrayList<>();
+			for (Persona persona : allPersonas)
+			{
+				InlineResponse200 respItem = new InlineResponse200();
+				respItem.setId(persona.getId());
+				respItem.setNombre(persona.getNombre());
+				respItem.setProfesion(persona.getProfesion());
+				respBody.add(respItem);
+			}
+			response = new ResponseEntity<List<InlineResponse200>>(respBody, HttpStatus.OK);
+			LOGGER.info("Personas encontradas [" + respBody.size() + "]");
+		}
+		catch (Exception e)
+		{
+			LOGGER.info("Error buscando personas");
+			response = new ResponseEntity<List<InlineResponse200>>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOGGER.info("Fin buscar todas las personas");
+		return response;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see io.swagger.api.PersonaApi#getPersonaPorId(java.lang.String)
+	 */
+	@Override
+	public ResponseEntity<InlineResponse200> getPersonaPorId(String idPersona)
+	{
+		LOGGER.info("Buscando persona por id [" + idPersona + "]");
+		ResponseEntity<InlineResponse200> response = null;
+		try
+		{
+			Persona persona = repository.findById(idPersona);
+			InlineResponse200 respBody = new InlineResponse200();
+			respBody.setId(persona.getId());
+			respBody.setNombre(persona.getNombre());
+			respBody.setProfesion(persona.getProfesion());
+			response = new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
+			LOGGER.info("Persona encontrada");
+		}
+		catch (Exception e)
+		{
+			LOGGER.info("Error buscando persona");
+			response = new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+		LOGGER.info("Fin buscar persona por id");
+		return response;
 	}
 
 }
