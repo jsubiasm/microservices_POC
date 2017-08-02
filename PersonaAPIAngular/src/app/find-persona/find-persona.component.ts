@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Persona } from '../../model/Persona';
+import { InlineResponse200 } from '../../model/InlineResponse200';
 
 @Component({
   selector: 'app-find-persona',
@@ -9,7 +9,7 @@ import { Persona } from '../../model/Persona';
 })
 export class FindPersonaComponent implements OnInit {
 
-    persona: Persona;
+    persona: InlineResponse200;
     resultOK: boolean;
     resultERR: boolean;
     resultadoMSG: String;

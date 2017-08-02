@@ -12,67 +12,21 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
-				</tr>
-				<tr>
-					<td>12345</td>
-					<td>Julio</td>
-					<td>Fontanero</td>
+				<tr *ngFor="let persona of listaPersonas">
+					<td>{{persona.id}}</td>
+					<td>{{persona.nombre}}</td>
+					<td>{{persona.profesion}}</td>
 				</tr>
 			</tbody>
 		</table>
-		<form class="form-horizontal" action="">
+		<form (ngSubmit)="onSubmit()" #listPersonaForm="ngForm" class="form-horizontal">
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
-					<button type="submit" class="btn btn-default">Actualizar</button>
+					<button type="submit" class="btn btn-default" (blur)="focus()" [disabled]="!listPersonaForm.form.valid">Actualizar</button>
 				</div>
 			</div>
 		</form>
-		<div class="alert alert-success alert-dismissable">
-			<a href="#" class="close" data-dismiss="alert" aria-label="close">x</a><strong>Mensaje:</strong>Mensaje con el resultado de la acci&oacute;n.
-		</div>
+		<div [hidden]="!resultERR" class="alert alert-danger">{{resultadoMSG}}</div>
+		<div [hidden]="!resultOK" class="alert alert-success">{{resultadoMSG}}</div>
 	</div>
 </div>
