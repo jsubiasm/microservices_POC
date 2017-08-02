@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { UpdatePersonaBody } from '../../model/UpdatePersonaBody';
+
 @Component({
   selector: 'app-update-persona',
   templateUrl: './update-persona.component.html',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UpdatePersonaComponent implements OnInit {
 
-  constructor() { }
+    persona: UpdatePersonaBody;
+    resultOK: boolean;
+    resultERR: boolean;
+    resultadoMSG: String;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    focus() {
+        this.resultOK = false;
+        this.resultERR = false;
+        this.resultadoMSG = "";
+    }
+
+    init() {
+        this.persona = { id: "", nombre: "", profesion: "" };
+        this.focus();
+    }
+
+    ngOnInit() {
+        this.init();
+    }
+
+    onSubmit() {
+        try {
+            this.resultOK = true;
+            this.resultERR = false;
+            this.resultadoMSG = "Persona modificada [" + this.persona.id + "] [" + this.persona.nombre + "] [" + this.persona.profesion + "]";
+        }
+        catch ( error ) {
+            this.resultOK = false;
+            this.resultERR = true;
+            this.resultadoMSG = "Error [" + error.message + "]";
+        }
+    }
 
 }

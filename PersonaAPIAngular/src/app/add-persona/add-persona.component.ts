@@ -24,7 +24,7 @@ export class AddPersonaComponent implements OnInit {
     }
 
     init() {
-        this.persona = { id: null, nombre: "", profesion: "" };
+        this.persona = { id: "", nombre: "", profesion: "" };
         this.focus();
     }
 
