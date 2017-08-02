@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { InlineResponse200 } from '../../model/InlineResponse200';
 
-@Component({
-  selector: 'app-find-persona',
-  templateUrl: './find-persona.component.html',
-  styleUrls: ['./find-persona.component.css']
+@Component( {
+    selector: 'app-find-persona',
+    templateUrl: './find-persona.component.html',
+    styleUrls: ['./find-persona.component.css']
 })
 export class FindPersonaComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class FindPersonaComponent implements OnInit {
     constructor() {
     }
 
-    focus() {
+    cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
         this.resultadoMSG = "";
@@ -25,7 +25,7 @@ export class FindPersonaComponent implements OnInit {
 
     init() {
         this.persona = { id: "", nombre: "", profesion: "" };
-        this.focus();
+        this.cleanMsg();
     }
 
     ngOnInit() {

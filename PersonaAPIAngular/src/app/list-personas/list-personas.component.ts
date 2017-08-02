@@ -17,7 +17,7 @@ export class ListPersonasComponent implements OnInit {
     constructor() {
     }
 
-    focus() {
+    cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
         this.resultadoMSG = "";
@@ -25,7 +25,7 @@ export class ListPersonasComponent implements OnInit {
 
     init() {
         this.listaPersonas = [{ id: "111", nombre: "111", profesion: "111" }, { id: "222", nombre: "222", profesion: "222" }];
-        this.focus();
+        this.cleanMsg();
     }
 
     ngOnInit() {

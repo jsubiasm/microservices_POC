@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { Persona } from '../../model/Persona';
 
-@Component({
-  selector: 'app-delete-persona',
-  templateUrl: './delete-persona.component.html',
-  styleUrls: ['./delete-persona.component.css']
+@Component( {
+    selector: 'app-delete-persona',
+    templateUrl: './delete-persona.component.html',
+    styleUrls: ['./delete-persona.component.css']
 })
 export class DeletePersonaComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class DeletePersonaComponent implements OnInit {
     constructor() {
     }
 
-    focus() {
+    cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
         this.resultadoMSG = "";
@@ -25,7 +25,7 @@ export class DeletePersonaComponent implements OnInit {
 
     init() {
         this.persona = { id: "", nombre: "", profesion: "" };
-        this.focus();
+        this.cleanMsg();
     }
 
     ngOnInit() {

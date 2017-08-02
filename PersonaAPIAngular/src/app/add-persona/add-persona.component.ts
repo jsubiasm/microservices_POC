@@ -17,7 +17,7 @@ export class AddPersonaComponent implements OnInit {
     constructor() {
     }
 
-    focus() {
+    cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
         this.resultadoMSG = "";
@@ -25,7 +25,7 @@ export class AddPersonaComponent implements OnInit {
 
     init() {
         this.persona = { id: "", nombre: "", profesion: "" };
-        this.focus();
+        this.cleanMsg();
     }
 
     ngOnInit() {

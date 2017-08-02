@@ -7,7 +7,7 @@
 			<div class="form-group">
 				<label class="control-label col-xs-3" for="idPersona">Id:</label>
 				<div class="col-xs-9">
-					<input (focus)="focus()" [(ngModel)]="persona.id" #idPersona="ngModel" type="text" class="form-control" id="idPersona" name="idPersona" placeholder="Introducir Id" required>
+					<input (focus)="cleanMsg()" [(ngModel)]="persona.id" #idPersona="ngModel" type="text" class="form-control" id="idPersona" name="idPersona" placeholder="Introducir Id" required>
 				</div>
 			</div>
 			<div class="form-group">
@@ -19,10 +19,7 @@
 		<div [hidden]="idPersona.valid || idPersona.pristine" class="alert alert-danger">El ID es obligatorio</div>
 		<div [hidden]="!resultERR" class="alert alert-danger">{{resultadoMSG}}</div>
 		<div [hidden]="!resultOK" class="alert alert-success">
-			{{resultadoMSG}}<br/>
-			<strong>ID: </strong>{{persona.id}}<br/>
-			<strong>Nombre: </strong>{{persona.nombre}}<br/>
-			<strong>Profesi&oacute;n: </strong>{{persona.profesion}}
+			{{resultadoMSG}}<br /> <strong>ID: </strong>{{persona.id}}<br /> <strong>Nombre: </strong>{{persona.nombre}}<br /> <strong>Profesi&oacute;n: </strong>{{persona.profesion}}
 		</div>
 	</div>
 </div>

@@ -22,7 +22,7 @@
 		<form (ngSubmit)="onSubmit()" #listPersonaForm="ngForm" class="form-horizontal">
 			<div class="form-group">
 				<div class="col-xs-offset-3 col-xs-9">
-					<button type="submit" class="btn btn-default" (blur)="focus()" [disabled]="!listPersonaForm.form.valid">Actualizar</button>
+					<button type="submit" class="btn btn-default" (blur)="cleanMsg()" [disabled]="!listPersonaForm.form.valid">Actualizar</button>
 				</div>
 			</div>
 		</form>

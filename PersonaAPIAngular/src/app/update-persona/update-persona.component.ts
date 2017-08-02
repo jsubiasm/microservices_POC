@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 
 import { UpdatePersonaBody } from '../../model/UpdatePersonaBody';
 
-@Component({
-  selector: 'app-update-persona',
-  templateUrl: './update-persona.component.html',
-  styleUrls: ['./update-persona.component.css']
+@Component( {
+    selector: 'app-update-persona',
+    templateUrl: './update-persona.component.html',
+    styleUrls: ['./update-persona.component.css']
 })
 export class UpdatePersonaComponent implements OnInit {
 
@@ -17,7 +17,7 @@ export class UpdatePersonaComponent implements OnInit {
     constructor() {
     }
 
-    focus() {
+    cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
         this.resultadoMSG = "";
@@ -25,7 +25,7 @@ export class UpdatePersonaComponent implements OnInit {
 
     init() {
         this.persona = { id: "", nombre: "", profesion: "" };
-        this.focus();
+        this.cleanMsg();
     }
 
     ngOnInit() {
