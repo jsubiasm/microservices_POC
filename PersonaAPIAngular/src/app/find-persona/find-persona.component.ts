@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Persona } from '../../model/Persona';
+
 @Component({
   selector: 'app-find-persona',
   templateUrl: './find-persona.component.html',
@@ -7,9 +9,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FindPersonaComponent implements OnInit {
 
-  constructor() { }
+    persona: Persona;
+    resultOK: boolean;
+    resultERR: boolean;
+    resultadoMSG: String;
 
-  ngOnInit() {
-  }
+    constructor() {
+    }
+
+    focus() {
+        this.resultOK = false;
+        this.resultERR = false;
+        this.resultadoMSG = "";
+    }
+
+    init() {
+        this.persona = { id: "", nombre: "", profesion: "" };
+        this.focus();
+    }
+
+    ngOnInit() {
+        this.init();
+    }
+
+    onSubmit() {
+        try {
+            this.resultOK = true;
+            this.resultERR = false;
+            this.resultadoMSG = "Persona encontrada";
+        }
+        catch ( error ) {
+            this.resultOK = false;
+            this.resultERR = true;
+            this.resultadoMSG = "Error [" + error.message + "]";
+        }
+    }
 
 }

@@ -32,6 +32,11 @@
 		<div [hidden]="nombre.valid || nombre.pristine" class="alert alert-danger">El nombre es obligatorio</div>
 		<div [hidden]="profesion.valid || profesion.pristine" class="alert alert-danger">La profesi&oacute;n es obligatoria</div>
 		<div [hidden]="!resultERR" class="alert alert-danger">{{resultadoMSG}}</div>
-		<div [hidden]="!resultOK" class="alert alert-success">{{resultadoMSG}}</div>
+		<div [hidden]="!resultOK" class="alert alert-success">
+			{{resultadoMSG}}<br/>
+			<strong>ID: </strong>{{persona.id}}<br/>
+			<strong>Nombre: </strong>{{persona.nombre}}<br/>
+			<strong>Profesi&oacute;n: </strong>{{persona.profesion}}
+		</div>
 	</div>
 </div>

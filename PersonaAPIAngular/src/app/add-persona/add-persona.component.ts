@@ -36,7 +36,7 @@ export class AddPersonaComponent implements OnInit {
         try {
             this.resultOK = true;
             this.resultERR = false;
-            this.resultadoMSG = "Persona insertada [" + this.persona.nombre + "] [" + this.persona.profesion + "]";
+            this.resultadoMSG = "Persona añadida correctamente";
         }
         catch ( error ) {
             this.resultOK = false;

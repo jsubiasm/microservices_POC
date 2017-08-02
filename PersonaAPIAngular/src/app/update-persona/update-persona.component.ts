@@ -36,7 +36,7 @@ export class UpdatePersonaComponent implements OnInit {
         try {
             this.resultOK = true;
             this.resultERR = false;
-            this.resultadoMSG = "Persona modificada [" + this.persona.id + "] [" + this.persona.nombre + "] [" + this.persona.profesion + "]";
+            this.resultadoMSG = "Persona modificada correctamente";
         }
         catch ( error ) {
             this.resultOK = false;
