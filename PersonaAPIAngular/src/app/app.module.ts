@@ -10,6 +10,8 @@ import { FindPersonaComponent } from './find-persona/find-persona.component';
 import { DeletePersonaComponent } from './delete-persona/delete-persona.component';
 import { ListPersonasComponent } from './list-personas/list-personas.component';
 
+import { PersonasApi } from '../api/PersonasApi';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,7 @@ import { ListPersonasComponent } from './list-personas/list-personas.component';
     FormsModule,
     HttpModule
   ],
-  providers: [],
+  providers: [PersonasApi],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

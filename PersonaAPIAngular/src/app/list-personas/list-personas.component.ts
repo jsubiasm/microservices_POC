@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { InlineResponse200 } from '../../model/InlineResponse200';
+import { PersonasApi } from '../../api/PersonasApi';
 
 @Component( {
     selector: 'app-list-personas',
@@ -14,7 +15,7 @@ export class ListPersonasComponent implements OnInit {
     resultERR: boolean;
     resultadoMSG: String;
 
-    constructor() {
+    constructor( private api: PersonasApi ) {
     }
 
     cleanMsg() {
@@ -24,7 +25,7 @@ export class ListPersonasComponent implements OnInit {
     }
 
     init() {
-        this.listaPersonas = [{ id: "111", nombre: "111", profesion: "111" }, { id: "222", nombre: "222", profesion: "222" }];
+        this.listaPersonas = [];
         this.cleanMsg();
     }
 
@@ -34,6 +35,7 @@ export class ListPersonasComponent implements OnInit {
 
     onSubmit() {
         try {
+            this.api.findAllPersonas().subscribe( response => { this.listaPersonas = response });
             this.resultOK = true;
             this.resultERR = false;
             this.resultadoMSG = "Listado actualizado";

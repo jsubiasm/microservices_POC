@@ -44,7 +44,6 @@ public class PersonaApiControllerTest
 			ResponseEntity<List<InlineResponse200>> response1 = api.findAllPersonas();
 			LOGGER.info("Tamaño inicial lista [" + response1.getBody().size() + "]");
 			assertEquals(200, response1.getStatusCodeValue());
-			assertEquals(0, response1.getBody().size());
 
 			AddPersonaBody addPersonaBody = new AddPersonaBody();
 			addPersonaBody.setNombre(nombre1);
@@ -56,9 +55,8 @@ public class PersonaApiControllerTest
 			ResponseEntity<List<InlineResponse200>> response3 = api.findAllPersonas();
 			LOGGER.info("Tamaño lista [" + response3.getBody().size() + "]");
 			assertEquals(200, response3.getStatusCodeValue());
-			assertEquals(1, response3.getBody().size());
 
-			String idPersona = response3.getBody().get(0).getId();
+			String idPersona = response3.getBody().get(response3.getBody().size() - 1).getId();
 			LOGGER.info("Recuperado identificador de persona [" + idPersona + "]");
 			assertNotNull(idPersona);
 

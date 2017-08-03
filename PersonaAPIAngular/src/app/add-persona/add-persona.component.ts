@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { AddPersonaBody } from '../../model/AddPersonaBody';
+import { PersonasApi } from '../../api/PersonasApi';
 
 @Component( {
     selector: 'app-add-persona',
@@ -14,7 +15,7 @@ export class AddPersonaComponent implements OnInit {
     resultERR: boolean;
     resultadoMSG: String;
 
-    constructor() {
+    constructor( private api: PersonasApi ) {
     }
 
     cleanMsg() {
@@ -34,6 +35,7 @@ export class AddPersonaComponent implements OnInit {
 
     onSubmit() {
         try {
+            this.api.addPersona( this.persona ).subscribe();
             this.resultOK = true;
             this.resultERR = false;
             this.resultadoMSG = "Persona añadida correctamente";

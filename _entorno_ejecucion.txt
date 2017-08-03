@@ -30,8 +30,8 @@ Pass: guest
 --- Ejecutar MongoDB:
 
 cd /home/jsubiasm/microservices_POC
-docker run -d -p 27017:27017 --name mongodb -v $(pwd)/mongodb:/data/db mongo
 docker run -d -p 27017:27017                -v $(pwd)/mongodb:/data/db mongo
+docker run -d -p 27017:27017 --name mongodb -v $(pwd)/mongodb:/data/db mongo
 
 
 --- Generar imagen docker:
