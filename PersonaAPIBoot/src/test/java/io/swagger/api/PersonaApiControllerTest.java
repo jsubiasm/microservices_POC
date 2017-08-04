@@ -48,15 +48,12 @@ public class PersonaApiControllerTest
 			AddPersonaBody addPersonaBody = new AddPersonaBody();
 			addPersonaBody.setNombre(nombre1);
 			addPersonaBody.setProfesion(profesion1);
-			ResponseEntity<Void> response2 = api.addPersona(addPersonaBody);
+			ResponseEntity<InlineResponse200> response2 = api.addPersona(addPersonaBody);
 			LOGGER.info("Persona insertada [" + nombre1 + "] [" + profesion1 + "]");
 			assertEquals(200, response2.getStatusCodeValue());
+			assertNotNull(response2.getBody().getId());
 
-			ResponseEntity<List<InlineResponse200>> response3 = api.findAllPersonas();
-			LOGGER.info("Tamaño lista [" + response3.getBody().size() + "]");
-			assertEquals(200, response3.getStatusCodeValue());
-
-			String idPersona = response3.getBody().get(response3.getBody().size() - 1).getId();
+			String idPersona = response2.getBody().getId();
 			LOGGER.info("Recuperado identificador de persona [" + idPersona + "]");
 			assertNotNull(idPersona);
 
@@ -64,9 +61,10 @@ public class PersonaApiControllerTest
 			updatePersonaBody.setId(idPersona);
 			updatePersonaBody.setNombre(nombre2);
 			updatePersonaBody.setProfesion(profesion2);
-			ResponseEntity<Void> response4 = api.updatePersona(updatePersonaBody);
+			ResponseEntity<InlineResponse200> response4 = api.updatePersona(updatePersonaBody);
 			LOGGER.info("Persona modificada [" + idPersona + "] [" + nombre2 + "] [" + profesion2 + "]");
 			assertEquals(200, response4.getStatusCodeValue());
+			assertNotNull(response4.getBody().getId());
 
 			ResponseEntity<InlineResponse200> response5 = api.getPersonaPorId(idPersona);
 			LOGGER.info("Persona encontrada [" + response5.getBody().getId() + "] [" + response5.getBody().getNombre() + "] [" + response5.getBody().getProfesion() + "]");
@@ -75,9 +73,10 @@ public class PersonaApiControllerTest
 			assertEquals(nombre2, response5.getBody().getNombre());
 			assertEquals(profesion2, response5.getBody().getProfesion());
 
-			ResponseEntity<Void> response6 = api.deletePersona(idPersona);
+			ResponseEntity<InlineResponse200> response6 = api.deletePersona(idPersona);
 			LOGGER.info("Persona borrada [" + idPersona + "]");
 			assertEquals(200, response6.getStatusCodeValue());
+			assertNotNull(response6.getBody().getId());
 
 			ResponseEntity<List<InlineResponse200>> response7 = api.findAllPersonas();
 			LOGGER.info("Tamaño lista [" + response7.getBody().size() + "]");

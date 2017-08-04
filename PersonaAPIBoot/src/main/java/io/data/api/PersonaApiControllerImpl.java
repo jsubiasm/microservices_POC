@@ -40,23 +40,23 @@ public class PersonaApiControllerImpl implements PersonaApi
 	 * io.swagger.api.PersonaApi#addPersona(io.swagger.model.AddPersonaBody)
 	 */
 	@Override
-	public ResponseEntity<Void> addPersona(AddPersonaBody addPersonaBody)
+	public ResponseEntity<InlineResponse200> addPersona(AddPersonaBody addPersonaBody)
 	{
 		LOGGER.info("Insertando persona [" + addPersonaBody.getNombre() + "] [" + addPersonaBody.getProfesion() + "]");
-		ResponseEntity<Void> response = null;
+		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
 			Persona persona = new Persona();
 			persona.setNombre(addPersonaBody.getNombre());
 			persona.setProfesion(addPersonaBody.getProfesion());
-			repository.insert(persona);
-			response = new ResponseEntity<Void>(HttpStatus.OK);
+			persona = repository.insert(persona);
+			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
 			LOGGER.info("Persona insertada");
 		}
 		catch (Exception e)
 		{
 			LOGGER.error("Error insertando persona", e);
-			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+			response = new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		LOGGER.info("Fin inserción persona");
 		return response;
@@ -69,24 +69,24 @@ public class PersonaApiControllerImpl implements PersonaApi
 	 * UpdatePersonaBody)
 	 */
 	@Override
-	public ResponseEntity<Void> updatePersona(UpdatePersonaBody updatePersonaBody)
+	public ResponseEntity<InlineResponse200> updatePersona(UpdatePersonaBody updatePersonaBody)
 	{
 		LOGGER.info("Modificando persona [" + updatePersonaBody.getId() + "] [" + updatePersonaBody.getNombre() + "] [" + updatePersonaBody.getProfesion() + "]");
-		ResponseEntity<Void> response = null;
+		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
 			Persona persona = new Persona();
 			persona.setId(updatePersonaBody.getId());
 			persona.setNombre(updatePersonaBody.getNombre());
 			persona.setProfesion(updatePersonaBody.getProfesion());
-			repository.save(persona);
-			response = new ResponseEntity<Void>(HttpStatus.OK);
+			persona = repository.save(persona);
+			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
 			LOGGER.info("Persona modificada");
 		}
 		catch (Exception e)
 		{
 			LOGGER.error("Error modificando persona", e);
-			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+			response = new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		LOGGER.info("Fin modificación persona");
 		return response;
@@ -98,20 +98,22 @@ public class PersonaApiControllerImpl implements PersonaApi
 	 * @see io.swagger.api.PersonaApi#deletePersona(java.lang.String)
 	 */
 	@Override
-	public ResponseEntity<Void> deletePersona(String idPersona)
+	public ResponseEntity<InlineResponse200> deletePersona(String idPersona)
 	{
 		LOGGER.info("Borrando persona [" + idPersona + "]");
-		ResponseEntity<Void> response = null;
+		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
 			repository.delete(idPersona);
-			response = new ResponseEntity<Void>(HttpStatus.OK);
+			InlineResponse200 respBody = new InlineResponse200();
+			respBody.setId(idPersona);
+			response = new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
 			LOGGER.info("Persona borrada");
 		}
 		catch (Exception e)
 		{
 			LOGGER.info("Error borrando persona");
-			response = new ResponseEntity<Void>(HttpStatus.INTERNAL_SERVER_ERROR);
+			response = new ResponseEntity<InlineResponse200>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 		LOGGER.info("Fin borrado persona");
 		return response;
@@ -133,11 +135,7 @@ public class PersonaApiControllerImpl implements PersonaApi
 			List<InlineResponse200> respBody = new ArrayList<>();
 			for (Persona persona : allPersonas)
 			{
-				InlineResponse200 respItem = new InlineResponse200();
-				respItem.setId(persona.getId());
-				respItem.setNombre(persona.getNombre());
-				respItem.setProfesion(persona.getProfesion());
-				respBody.add(respItem);
+				respBody.add(getResponseItemFromPersona(persona));
 			}
 			response = new ResponseEntity<List<InlineResponse200>>(respBody, HttpStatus.OK);
 			LOGGER.info("Personas encontradas [" + respBody.size() + "]");
@@ -164,11 +162,7 @@ public class PersonaApiControllerImpl implements PersonaApi
 		try
 		{
 			Persona persona = repository.findById(idPersona);
-			InlineResponse200 respBody = new InlineResponse200();
-			respBody.setId(persona.getId());
-			respBody.setNombre(persona.getNombre());
-			respBody.setProfesion(persona.getProfesion());
-			response = new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
+			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
 			LOGGER.info("Persona encontrada");
 		}
 		catch (Exception e)
@@ -178,6 +172,19 @@ public class PersonaApiControllerImpl implements PersonaApi
 		}
 		LOGGER.info("Fin buscar persona por id");
 		return response;
+	}
+
+	/**
+	 * @param persona
+	 * @return
+	 */
+	private InlineResponse200 getResponseItemFromPersona(Persona persona)
+	{
+		InlineResponse200 responseItem = new InlineResponse200();
+		responseItem.setId(persona.getId());
+		responseItem.setNombre(persona.getNombre());
+		responseItem.setProfesion(persona.getProfesion());
+		return responseItem;
 	}
 
 }
