@@ -20,19 +20,19 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
+
 import java.util.List;
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-
-import org.springframework.web.bind.annotation.CrossOrigin;
-
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-31T12:03:01.289Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-08-04T09:58:29.605Z")
 
 @Api(value = "persona", description = "the persona API")
 public interface PersonaApi {
 
-    @ApiOperation(value = "Añade una nueva persona", notes = "Añade una nueva persona", response = Void.class, tags={ "Personas", })
+    @ApiOperation(value = "Añade una nueva persona", notes = "Añade una nueva persona", response = InlineResponse200.class, tags={ "Personas", })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "operacion correcta", response = InlineResponse200.class),
         @ApiResponse(code = 405, message = "Error de validación de datos", response = Void.class) })
     
     @RequestMapping(value = "/persona",
@@ -40,11 +40,12 @@ public interface PersonaApi {
         consumes = { "application/json", "application/xml" },
         method = RequestMethod.POST)
     @CrossOrigin(origins = "*")
-    ResponseEntity<Void> addPersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody AddPersonaBody addPersonaBody);
+    ResponseEntity<InlineResponse200> addPersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody AddPersonaBody addPersonaBody);
 
 
-    @ApiOperation(value = "Elimina una persona", notes = "Elimina una persona", response = Void.class, tags={ "Personas", })
+    @ApiOperation(value = "Elimina una persona", notes = "Elimina una persona", response = InlineResponse200.class, tags={ "Personas", })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "operacion correcta", response = InlineResponse200.class),
         @ApiResponse(code = 400, message = "Identificador no válido", response = Void.class),
         @ApiResponse(code = 404, message = "Persona no encontrada", response = Void.class) })
     
@@ -52,7 +53,7 @@ public interface PersonaApi {
         produces = { "application/xml", "application/json" }, 
         method = RequestMethod.DELETE)
     @CrossOrigin(origins = "*")
-    ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona);
+    ResponseEntity<InlineResponse200> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona);
 
 
     @ApiOperation(value = "Devuelve todas las personas", notes = "Devuelve todas las personas", response = InlineResponse200.class, responseContainer = "List", tags={ "Personas", })
@@ -79,8 +80,9 @@ public interface PersonaApi {
     ResponseEntity<InlineResponse200> getPersonaPorId(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona);
 
 
-    @ApiOperation(value = "Modifica una persona ya existente", notes = "Modifica una persona ya existente", response = Void.class, tags={ "Personas", })
+    @ApiOperation(value = "Modifica una persona ya existente", notes = "Modifica una persona ya existente", response = InlineResponse200.class, tags={ "Personas", })
     @ApiResponses(value = { 
+        @ApiResponse(code = 200, message = "operacion correcta", response = InlineResponse200.class),
         @ApiResponse(code = 400, message = "Identificador no válido", response = Void.class),
         @ApiResponse(code = 404, message = "Persona no encontrada", response = Void.class),
         @ApiResponse(code = 405, message = "Error de validación de datos", response = Void.class) })
@@ -90,6 +92,6 @@ public interface PersonaApi {
         consumes = { "application/json", "application/xml" },
         method = RequestMethod.PUT)
     @CrossOrigin(origins = "*")
-    ResponseEntity<Void> updatePersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody UpdatePersonaBody updatePersonaBody);
+    ResponseEntity<InlineResponse200> updatePersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody UpdatePersonaBody updatePersonaBody);
 
 }

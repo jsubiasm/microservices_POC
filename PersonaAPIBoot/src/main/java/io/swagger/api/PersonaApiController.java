@@ -23,7 +23,7 @@ import java.util.List;
 
 import javax.validation.constraints.*;
 import javax.validation.Valid;
-@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-07-27T10:17:03.704Z")
+@javax.annotation.Generated(value = "io.swagger.codegen.languages.SpringCodegen", date = "2017-08-04T09:58:29.605Z")
 
 @Controller
 public class PersonaApiController implements PersonaApi {
@@ -31,12 +31,13 @@ public class PersonaApiController implements PersonaApi {
 	@Autowired
 	private PersonaApiControllerImpl apiImpl;
 
-    public ResponseEntity<Void> addPersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody AddPersonaBody addPersonaBody) {
+
+    public ResponseEntity<InlineResponse200> addPersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody AddPersonaBody addPersonaBody) {
         // do some magic!
         return apiImpl.addPersona(addPersonaBody);
     }
 
-    public ResponseEntity<Void> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona) {
+    public ResponseEntity<InlineResponse200> deletePersona(@ApiParam(value = "ID de la persona",required=true ) @PathVariable("idPersona") String idPersona) {
         // do some magic!
         return apiImpl.deletePersona(idPersona);
     }
@@ -51,7 +52,7 @@ public class PersonaApiController implements PersonaApi {
         return apiImpl.getPersonaPorId(idPersona);
     }
 
-    public ResponseEntity<Void> updatePersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody UpdatePersonaBody updatePersonaBody) {
+    public ResponseEntity<InlineResponse200> updatePersona(@ApiParam(value = "Datos de la persona" ,required=true )  @Valid @RequestBody UpdatePersonaBody updatePersonaBody) {
         // do some magic!
         return apiImpl.updatePersona(updatePersonaBody);
     }

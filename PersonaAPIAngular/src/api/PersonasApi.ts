@@ -46,7 +46,7 @@ export class PersonasApi {
      * @summary Añade una nueva persona
      * @param addPersonaBody Datos de la persona
      */
-    public addPersona(addPersonaBody: models.AddPersonaBody, extraHttpRequestParams?: any): Observable<{}> {
+    public addPersona(addPersonaBody: models.AddPersonaBody, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.addPersonaWithHttpInfo(addPersonaBody, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -62,7 +62,7 @@ export class PersonasApi {
      * @summary Elimina una persona
      * @param idPersona ID de la persona
      */
-    public deletePersona(idPersona: string, extraHttpRequestParams?: any): Observable<{}> {
+    public deletePersona(idPersona: string, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.deletePersonaWithHttpInfo(idPersona, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {
@@ -109,7 +109,7 @@ export class PersonasApi {
      * @summary Modifica una persona ya existente
      * @param updatePersonaBody Datos de la persona
      */
-    public updatePersona(updatePersonaBody: models.UpdatePersonaBody, extraHttpRequestParams?: any): Observable<{}> {
+    public updatePersona(updatePersonaBody: models.UpdatePersonaBody, extraHttpRequestParams?: any): Observable<models.InlineResponse200> {
         return this.updatePersonaWithHttpInfo(updatePersonaBody, extraHttpRequestParams)
             .map((response: Response) => {
                 if (response.status === 204) {

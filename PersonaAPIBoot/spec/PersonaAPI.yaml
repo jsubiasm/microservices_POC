@@ -42,6 +42,10 @@ paths:
           schema:
             $ref: '#/definitions/Persona'
       responses:
+        '200':
+          description: operacion correcta
+          schema:
+            $ref: '#/definitions/Persona'
         '405':
           description: Error de validación de datos
     put:
@@ -64,6 +68,10 @@ paths:
           schema:
             $ref: '#/definitions/Persona'
       responses:
+        '200':
+          description: operacion correcta
+          schema:
+            $ref: '#/definitions/Persona'
         '400':
           description: Identificador no válido
         '404':
@@ -128,6 +136,10 @@ paths:
           required: true
           type: string
       responses:
+        '200':
+          description: operacion correcta
+          schema:
+            $ref: '#/definitions/Persona'
         '400':
           description: Identificador no válido
         '404':
