@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Persona } from '../../model/Persona';
+import { PersonasApi } from '../../api/PersonasApi';
 
 @Component( {
     selector: 'app-delete-persona',
@@ -14,7 +15,7 @@ export class DeletePersonaComponent implements OnInit {
     resultERR: boolean;
     resultadoMSG: String;
 
-    constructor() {
+    constructor( private api: PersonasApi ) {
     }
 
     cleanMsg() {
@@ -34,9 +35,23 @@ export class DeletePersonaComponent implements OnInit {
 
     onSubmit() {
         try {
-            this.resultOK = true;
-            this.resultERR = false;
-            this.resultadoMSG = "Persona eliminada correctamente";
+            this.api.deletePersona( this.persona.id ).subscribe(
+                response => {
+                    this.resultOK = true;
+                    this.resultERR = false;
+                    this.resultadoMSG = "Persona eliminada correctamente";
+                    console.log( response );
+                },
+                err => {
+                    this.resultOK = false;
+                    this.resultERR = true;
+                    this.resultadoMSG = "Error eliminando persona";
+                    console.error( err );
+                },
+                () => {
+                    console.log( "Fin observable" );
+                }
+            );
         }
         catch ( error ) {
             this.resultOK = false;

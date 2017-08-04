@@ -35,10 +35,23 @@ export class AddPersonaComponent implements OnInit {
 
     onSubmit() {
         try {
-            this.api.addPersona( this.persona ).subscribe();
-            this.resultOK = true;
-            this.resultERR = false;
-            this.resultadoMSG = "Persona añadida correctamente";
+            this.api.addPersona( this.persona ).subscribe(
+                response => {
+                    this.resultOK = true;
+                    this.resultERR = false;
+                    this.resultadoMSG = "Persona añadida correctamente";
+                    console.log( response );
+                },
+                err => {
+                    this.resultOK = false;
+                    this.resultERR = true;
+                    this.resultadoMSG = "Error añadiendo persona";
+                    console.error( err );
+                },
+                () => {
+                    console.log( "Fin observable" );
+                }
+            );
         }
         catch ( error ) {
             this.resultOK = false;

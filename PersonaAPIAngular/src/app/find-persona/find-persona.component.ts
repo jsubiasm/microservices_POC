@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { InlineResponse200 } from '../../model/InlineResponse200';
+import { PersonasApi } from '../../api/PersonasApi';
 
 @Component( {
     selector: 'app-find-persona',
@@ -14,7 +15,7 @@ export class FindPersonaComponent implements OnInit {
     resultERR: boolean;
     resultadoMSG: String;
 
-    constructor() {
+    constructor( private api: PersonasApi ) {
     }
 
     cleanMsg() {
@@ -34,9 +35,24 @@ export class FindPersonaComponent implements OnInit {
 
     onSubmit() {
         try {
-            this.resultOK = true;
-            this.resultERR = false;
-            this.resultadoMSG = "Persona encontrada";
+            this.api.getPersonaPorId( this.persona.id ).subscribe(
+                response => {
+                    this.persona = response;
+                    this.resultOK = true;
+                    this.resultERR = false;
+                    this.resultadoMSG = "Persona encontrada";
+                    console.log( response );
+                },
+                err => {
+                    this.resultOK = false;
+                    this.resultERR = true;
+                    this.resultadoMSG = "Error buscando persona";
+                    console.error( err );
+                },
+                () => {
+                    console.log( "Fin observable" );
+                }
+            );
         }
         catch ( error ) {
             this.resultOK = false;

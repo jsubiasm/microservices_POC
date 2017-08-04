@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { UpdatePersonaBody } from '../../model/UpdatePersonaBody';
+import { PersonasApi } from '../../api/PersonasApi';
 
 @Component( {
     selector: 'app-update-persona',
@@ -14,7 +15,7 @@ export class UpdatePersonaComponent implements OnInit {
     resultERR: boolean;
     resultadoMSG: String;
 
-    constructor() {
+    constructor( private api: PersonasApi ) {
     }
 
     cleanMsg() {
@@ -34,9 +35,23 @@ export class UpdatePersonaComponent implements OnInit {
 
     onSubmit() {
         try {
-            this.resultOK = true;
-            this.resultERR = false;
-            this.resultadoMSG = "Persona modificada correctamente";
+            this.api.updatePersona( this.persona ).subscribe(
+                response => {
+                    this.resultOK = true;
+                    this.resultERR = false;
+                    this.resultadoMSG = "Persona modificada correctamente";
+                    console.log( response );
+                },
+                err => {
+                    this.resultOK = false;
+                    this.resultERR = true;
+                    this.resultadoMSG = "Error modificando persona";
+                    console.error( err );
+                },
+                () => {
+                    console.log( "Fin observable" );
+                }
+            );
         }
         catch ( error ) {
             this.resultOK = false;
