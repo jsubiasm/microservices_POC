@@ -37,6 +37,7 @@ export class DeletePersonaComponent implements OnInit {
         try {
             this.api.deletePersona( this.persona.id ).subscribe(
                 response => {
+                    this.persona = response;
                     this.resultOK = true;
                     this.resultERR = false;
                     this.resultadoMSG = "Persona eliminada correctamente";

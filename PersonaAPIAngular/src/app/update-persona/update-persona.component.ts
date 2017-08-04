@@ -37,6 +37,7 @@ export class UpdatePersonaComponent implements OnInit {
         try {
             this.api.updatePersona( this.persona ).subscribe(
                 response => {
+                    this.persona = response;
                     this.resultOK = true;
                     this.resultERR = false;
                     this.resultadoMSG = "Persona modificada correctamente";

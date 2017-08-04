@@ -37,6 +37,7 @@ export class AddPersonaComponent implements OnInit {
         try {
             this.api.addPersona( this.persona ).subscribe(
                 response => {
+                    this.persona = response;
                     this.resultOK = true;
                     this.resultERR = false;
                     this.resultadoMSG = "Persona añadida correctamente";
