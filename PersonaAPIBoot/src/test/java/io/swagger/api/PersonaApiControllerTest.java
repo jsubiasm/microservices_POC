@@ -86,6 +86,7 @@ public class PersonaApiControllerTest
 		catch (Exception e)
 		{
 			LOGGER.error("Error ejecutando test", e);
+			throw e;
 		}
 	}
 
