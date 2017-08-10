@@ -1,3 +1,12 @@
+#!/bin/bash
+####################################
+#
+# Script para ejecucion de tests
+#
+####################################
 
+# Instalamos dependencias. 
 npm install
-ng test --single-run=true
+
+# Lanzamos tests.
+ng test --single-run
