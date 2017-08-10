@@ -1,14 +1,14 @@
-import { PersonaAPIAngularPage } from './app.po';
+import { AppPage } from './app.po';
 
-describe('PersonaAPIAngular App', function() {
-  let page: PersonaAPIAngularPage;
+describe('persona-apiangular App', () => {
+  let page: AppPage;
 
   beforeEach(() => {
-    page = new PersonaAPIAngularPage();
+    page = new AppPage();
   });
 
-  it('should display message saying app works', () => {
+  it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Prueba Concepto API RESTful');
+    expect(page.getParagraphText()).toEqual('Welcome to app!');
   });
 });
