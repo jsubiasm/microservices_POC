@@ -1,3 +1,3 @@
 @echo off
-call ng test
+call ng test --single-run=true
 pause
