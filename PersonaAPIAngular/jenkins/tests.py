@@ -1,0 +1,6 @@
+print("*********************************************")
+print("*                                           *")
+print("*  WARNING: Es necesario ejecutar los tests *")
+print("*           unitarios de angular            *")
+print("*                                           *")
+print("*********************************************")
