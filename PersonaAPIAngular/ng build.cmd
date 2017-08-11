@@ -1,3 +1,3 @@
 @echo off
-call ng build --base-href=/PersonaAPIAngular/
+call ng build
 pause
