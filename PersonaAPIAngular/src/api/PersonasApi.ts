@@ -28,7 +28,10 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class PersonasApi {
 
-    protected basePath = 'http://localhost:85/v1';
+    // TODO: Automatizar la modificación de este valor en funcion del entorno de desarrollo
+    // Ahora mismo es necesario modificarlo a mano
+    protected basePath = 'http://http://192.168.56.101:85/v1';
+    
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
