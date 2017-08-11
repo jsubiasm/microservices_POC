@@ -33,13 +33,12 @@ docker run -d -p 27017:27017 --name mongodb -v $(pwd)/mongodb:/data/db mongo
 
 --- Generar imagen docker:
 
-cd /home/jsubiasm/microservices_POC/docker
-docker build -t jsubiasm/microservices_poc .
+docker build -t jsubiasm/microservices_poc ./PersonaAPIBoot/docker
 
 
 --- Ejecutar imagen docker:
 
-docker run -d -p 8080:8080 -t jsubiasm/microservices_poc
+docker run -d --name microservices_poc -p 85:8080 -t jsubiasm/microservices_poc
 
 
 --- Ejecutar docker-compose:
