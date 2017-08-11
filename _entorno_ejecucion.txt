@@ -31,14 +31,14 @@ cd /home/jsubiasm/microservices_POC
 docker run -d -p 27017:27017 --name mongodb -v $(pwd)/mongodb:/data/db mongo
 
 
---- Generar imagen docker:
+--- Generar imagen y ejecutar contenedor docker:
 
-docker build -t jsubiasm/microservices_poc ./PersonaAPIBoot/docker
-
-
---- Ejecutar imagen docker:
-
-docker run -d --name microservices_poc -p 85:8080 -t jsubiasm/microservices_poc
+sudo cp ./PersonaAPIBoot/target/PersonaAPIBoot-1.0.0.jar ./PersonaAPIBoot/docker/PersonaAPIBoot-1.0.0.jar
+cd ./PersonaAPIBoot/docker
+sudo docker build -t jsubiasm/microservices_poc .
+sudo docker stop microservices_poc
+sudo docker rm microservices_poc
+sudo docker run -d --name microservices_poc -p 85:8080 -t jsubiasm/microservices_poc
 
 
 --- Ejecutar docker-compose:
