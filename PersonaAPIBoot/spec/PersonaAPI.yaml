@@ -9,7 +9,7 @@ info:
   license:
     name: ''
     url: 'http://'
-host: 'localhost:8080'
+host: 'localhost:85'
 basePath: /v1
 tags:
   - name: Personas

@@ -6,7 +6,7 @@ docker run -d --name swagger-editor -p 81:8080 swaggerapi/swagger-editor
 --- Ejecutar Imposter (mock server):
 
 cd /home/jsubiasm/microservices_POC
-docker run -d --name imposter -ti -p 82:8443 -v $(pwd)/imposter:/opt/imposter/config outofcoffee/imposter-openapi
+docker run -d --name imposter-openapi -ti -p 82:8443 -v $(pwd)/imposter:/opt/imposter/config outofcoffee/imposter-openapi
 
 
 --- Ejecutar Jenkins:
@@ -19,8 +19,8 @@ Pass: admin
 
 --- Ejecutar RabbitMQ:
 
-docker run -d --hostname rabbithost --name rabbitdemn rabbitmq:3
-docker run -d --hostname rabbithost --name rabbitmgmt -p 84:15672 rabbitmq:3-management
+docker run -d --hostname rabbithost --name rabbitdaemn rabbitmq:3
+docker run -d --hostname rabbithost --name rabbitmngmt -p 84:15672 rabbitmq:3-management
 User: guest
 Pass: guest
 
@@ -28,17 +28,30 @@ Pass: guest
 --- Ejecutar MongoDB:
 
 cd /home/jsubiasm/microservices_POC
-docker run -d -p 27017:27017 --name mongodb -v $(pwd)/mongodb:/data/db mongo
+docker run -d -p 27017:27017 --name mongo -v $(pwd)/mongodb:/data/db mongo
 
 
---- Generar imagen y ejecutar contenedor docker:
+--- Generar imagen y ejecutar contenedor docker persona-api-boot:
 
 sudo cp ./PersonaAPIBoot/target/PersonaAPIBoot-1.0.0.jar ./PersonaAPIBoot/docker/PersonaAPIBoot-1.0.0.jar
 cd ./PersonaAPIBoot/docker
-sudo docker build -t jsubiasm/microservices_poc .
-sudo docker stop microservices_poc
-sudo docker rm microservices_poc
-sudo docker run -d --name microservices_poc -p 85:8080 -t jsubiasm/microservices_poc
+sudo docker build -t jsubiasm/persona-api-boot .
+sudo docker stop persona-api-boot
+sudo docker rm persona-api-boot
+sudo docker run -d --name persona-api-boot -p 85:85 -t jsubiasm/persona-api-boot
+
+
+--- Generar imagen y ejecutar contenedor docker persona-api-angular:
+
+cd ./PersonaAPIAngular
+sudo npm install
+sudo ng build
+sudo cp -r ./dist ./docker
+cd ./docker
+sudo docker build -t jsubiasm/persona-api-angular .
+sudo docker stop persona-api-angular
+sudo docker rm persona-api-angular
+sudo docker run -d --name persona-api-angular -p 86:80 -t jsubiasm/persona-api-angular
 
 
 --- Ejecutar docker-compose:

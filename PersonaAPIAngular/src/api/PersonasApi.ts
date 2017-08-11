@@ -28,7 +28,7 @@ import { Configuration }                                     from '../configurat
 @Injectable()
 export class PersonasApi {
 
-    protected basePath = 'http://localhost:8080/v1';
+    protected basePath = 'http://localhost:85/v1';
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 
