@@ -1,6 +1,0 @@
-version: '2'
-services:
-    microservices_poc:
-        image: jsubiasm/microservices_poc:latest
-        ports:
-            - 8080:8080
