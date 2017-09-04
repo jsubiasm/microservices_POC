@@ -1,8 +1,6 @@
-#!/bin/bash
-
-cd ../..
-sudo cp ./PersonaAPIBoot/target/PersonaAPIBoot-1.0.0.jar ./PersonaAPIBoot/docker/PersonaAPIBoot-1.0.0.jar
-cd ./PersonaAPIBoot/docker
+cd ./PersonaAPIBoot
+sudo cp ./target/PersonaAPIBoot-1.0.0.jar ./docker/PersonaAPIBoot-1.0.0.jar
+cd ./docker
 sudo docker build -t jsubiasm/persona-api-boot .
 sudo docker stop persona-api-boot
 sudo docker rm persona-api-boot

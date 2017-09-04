@@ -1,5 +1,4 @@
-#!/bin/bash
-cd ..
+cd ./PersonaAPIAngular
 sudo npm install
 sudo ng build
 sudo cp -r ./dist ./docker
