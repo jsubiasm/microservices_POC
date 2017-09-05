@@ -46,7 +46,7 @@ export class ListPersonasComponent implements OnInit {
                 err => {
                     this.resultOK = false;
                     this.resultERR = true;
-                    this.resultadoMSG = "Error buscando personas";
+                    this.resultadoMSG = "Error buscando personas (status:" + err.status + ")";
                     console.error( err );
                 },
                 () => {

@@ -46,7 +46,7 @@ export class DeletePersonaComponent implements OnInit {
                 err => {
                     this.resultOK = false;
                     this.resultERR = true;
-                    this.resultadoMSG = "Error eliminando persona";
+                    this.resultadoMSG = "Error eliminando persona (status:" + err.status + ")";
                     console.error( err );
                 },
                 () => {

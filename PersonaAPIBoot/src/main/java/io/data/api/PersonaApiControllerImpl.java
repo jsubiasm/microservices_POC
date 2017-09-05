@@ -75,13 +75,24 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
-			Persona persona = new Persona();
-			persona.setId(updatePersonaBody.getId());
-			persona.setNombre(updatePersonaBody.getNombre());
-			persona.setProfesion(updatePersonaBody.getProfesion());
-			persona = repository.save(persona);
-			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
-			LOGGER.info("Persona modificada");
+			if (updatePersonaBody.getId() == null || updatePersonaBody.getId().isEmpty())
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
+			}
+			else if (repository.findById(updatePersonaBody.getId()) == null)
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.NOT_FOUND);
+			}
+			else
+			{
+				Persona persona = new Persona();
+				persona.setId(updatePersonaBody.getId());
+				persona.setNombre(updatePersonaBody.getNombre());
+				persona.setProfesion(updatePersonaBody.getProfesion());
+				persona = repository.save(persona);
+				response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
+				LOGGER.info("Persona modificada");
+			}
 		}
 		catch (Exception e)
 		{
@@ -104,11 +115,22 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
-			repository.delete(idPersona);
-			InlineResponse200 respBody = new InlineResponse200();
-			respBody.setId(idPersona);
-			response = new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
-			LOGGER.info("Persona borrada");
+			if (idPersona == null || idPersona.isEmpty())
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
+			}
+			else if (repository.findById(idPersona) == null)
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.NOT_FOUND);
+			}
+			else
+			{
+				repository.delete(idPersona);
+				InlineResponse200 respBody = new InlineResponse200();
+				respBody.setId(idPersona);
+				response = new ResponseEntity<InlineResponse200>(respBody, HttpStatus.OK);
+				LOGGER.info("Persona borrada");
+			}
 		}
 		catch (Exception e)
 		{
@@ -161,9 +183,20 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
-			Persona persona = repository.findById(idPersona);
-			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
-			LOGGER.info("Persona encontrada");
+			if (idPersona == null || idPersona.isEmpty())
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
+			}
+			else if (repository.findById(idPersona) == null)
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.NOT_FOUND);
+			}
+			else
+			{
+				Persona persona = repository.findById(idPersona);
+				response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
+				LOGGER.info("Persona encontrada");
+			}
 		}
 		catch (Exception e)
 		{

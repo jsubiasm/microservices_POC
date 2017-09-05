@@ -46,7 +46,7 @@ export class AddPersonaComponent implements OnInit {
                 err => {
                     this.resultOK = false;
                     this.resultERR = true;
-                    this.resultadoMSG = "Error añadiendo persona";
+                    this.resultadoMSG = "Error añadiendo persona (status:" + err.status + ")";
                     console.error( err );
                 },
                 () => {

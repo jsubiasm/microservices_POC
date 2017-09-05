@@ -46,7 +46,7 @@ export class UpdatePersonaComponent implements OnInit {
                 err => {
                     this.resultOK = false;
                     this.resultERR = true;
-                    this.resultadoMSG = "Error modificando persona";
+                    this.resultadoMSG = "Error modificando persona (status:" + err.status + ")";
                     console.error( err );
                 },
                 () => {

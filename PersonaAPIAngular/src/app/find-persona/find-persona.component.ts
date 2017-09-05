@@ -46,7 +46,7 @@ export class FindPersonaComponent implements OnInit {
                 err => {
                     this.resultOK = false;
                     this.resultERR = true;
-                    this.resultadoMSG = "Error buscando persona";
+                    this.resultadoMSG = "Error buscando persona (status:" + err.status + ")";
                     console.error( err );
                 },
                 () => {
