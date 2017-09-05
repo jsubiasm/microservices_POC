@@ -1,3 +1,3 @@
 @echo off
-call ng build
+call ng build --environment=dev
 pause

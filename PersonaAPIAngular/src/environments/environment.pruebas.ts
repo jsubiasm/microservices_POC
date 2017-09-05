@@ -5,5 +5,5 @@
 
 export const environment = {
   production: false,
-  PersonasApiBasePath: 'http://localhost:85/v1',
+  PersonasApiBasePath: 'http://192.168.56.101:85/v1',
 };

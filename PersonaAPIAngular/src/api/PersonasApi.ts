@@ -24,13 +24,13 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
+import { environment } from '../environments/environment';
+
 
 @Injectable()
 export class PersonasApi {
 
-    // TODO: Automatizar la modificación de este valor en funcion del entorno de desarrollo
-    // Ahora mismo es necesario modificarlo a mano
-    protected basePath = 'http://192.168.56.101:85/v1';
+    protected basePath = environment.PersonasApiBasePath;
     
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
