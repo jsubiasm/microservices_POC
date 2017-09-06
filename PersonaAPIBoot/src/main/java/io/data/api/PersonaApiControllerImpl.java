@@ -46,12 +46,27 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
-			Persona persona = new Persona();
-			persona.setNombre(addPersonaBody.getNombre());
-			persona.setProfesion(addPersonaBody.getProfesion());
-			persona = repository.insert(persona);
-			response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
-			LOGGER.info("Persona insertada");
+			if (addPersonaBody.getNombre() != null)
+			{
+				addPersonaBody.setNombre(addPersonaBody.getNombre().trim());
+			}
+			if (addPersonaBody.getProfesion() != null)
+			{
+				addPersonaBody.setProfesion(addPersonaBody.getProfesion().trim());
+			}
+			if (addPersonaBody.getNombre() == null || addPersonaBody.getNombre().isEmpty() || addPersonaBody.getProfesion() == null || addPersonaBody.getProfesion().isEmpty())
+			{
+				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
+			}
+			else
+			{
+				Persona persona = new Persona();
+				persona.setNombre(addPersonaBody.getNombre());
+				persona.setProfesion(addPersonaBody.getProfesion());
+				persona = repository.insert(persona);
+				response = new ResponseEntity<InlineResponse200>(getResponseItemFromPersona(persona), HttpStatus.OK);
+				LOGGER.info("Persona insertada");
+			}
 		}
 		catch (Exception e)
 		{
@@ -75,7 +90,19 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
-			if (updatePersonaBody.getId() == null || updatePersonaBody.getId().isEmpty())
+			if (updatePersonaBody.getId() != null)
+			{
+				updatePersonaBody.setId(updatePersonaBody.getId().trim());
+			}
+			if (updatePersonaBody.getNombre() != null)
+			{
+				updatePersonaBody.setNombre(updatePersonaBody.getNombre().trim());
+			}
+			if (updatePersonaBody.getProfesion() != null)
+			{
+				updatePersonaBody.setProfesion(updatePersonaBody.getProfesion().trim());
+			}
+			if (updatePersonaBody.getId() == null || updatePersonaBody.getId().isEmpty() || updatePersonaBody.getNombre() == null || updatePersonaBody.getNombre().isEmpty() || updatePersonaBody.getProfesion() == null || updatePersonaBody.getProfesion().isEmpty())
 			{
 				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
 			}
@@ -115,6 +142,10 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
+			if (idPersona != null)
+			{
+				idPersona = idPersona.trim();
+			}
 			if (idPersona == null || idPersona.isEmpty())
 			{
 				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
@@ -183,6 +214,10 @@ public class PersonaApiControllerImpl implements PersonaApi
 		ResponseEntity<InlineResponse200> response = null;
 		try
 		{
+			if (idPersona != null)
+			{
+				idPersona = idPersona.trim();
+			}
 			if (idPersona == null || idPersona.isEmpty())
 			{
 				response = new ResponseEntity<InlineResponse200>(HttpStatus.BAD_REQUEST);
