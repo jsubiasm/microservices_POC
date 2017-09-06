@@ -1,6 +1,6 @@
 cd ./PersonaAPIAngular
 sudo npm install
-sudo ng build --environment=pruebas
+sudo ng build --environment=pruebas --progress=false
 sudo cp -r ./dist ./docker
 cd ./docker
 sudo docker build -t jsubiasm/persona-api-angular .
