@@ -32,13 +32,13 @@ import { PersonasApi } from '../api/PersonasApi';
         HttpModule,
         RouterModule.forRoot( [
             {
+                path: 'crud-personas',
+                component: CrudPersonasComponent
+            },
+            {
                 path: '',
                 redirectTo: '/crud-personas',
                 pathMatch: 'full'
-            },
-            {
-                path: 'crud-personas',
-                component: CrudPersonasComponent
             }
         ] )
     ],
