@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  entorno: 'Desarrollo',
   PersonasApiBasePath: 'http://localhost:85/v1',
 };

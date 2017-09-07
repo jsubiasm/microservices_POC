@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
+  entorno: 'Pruebas',
   PersonasApiBasePath: 'http://192.168.56.101:85/v1',
 };
