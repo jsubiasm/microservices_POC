@@ -5,8 +5,11 @@ import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { RouterModule } from '@angular/router';
+import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { CrudPersonasComponent } from './crud-personas/crud-personas.component';
 import { AddPersonaComponent } from './add-persona/add-persona.component';
 import { UpdatePersonaComponent } from './update-persona/update-persona.component';
 import { FindPersonaComponent } from './find-persona/find-persona.component';
@@ -20,6 +23,7 @@ describe( 'AppComponent', () => {
         TestBed.configureTestingModule( {
             declarations: [
                 AppComponent,
+                CrudPersonasComponent,
                 AddPersonaComponent,
                 UpdatePersonaComponent,
                 FindPersonaComponent,
@@ -29,9 +33,21 @@ describe( 'AppComponent', () => {
             imports: [
                 BrowserModule,
                 FormsModule,
-                HttpModule
+                HttpModule,
+                RouterModule.forRoot( [
+                    {
+                        path: '',
+                        redirectTo: '/crud-personas',
+                        pathMatch: 'full'
+                    },
+                    {
+                        path: 'crud-personas',
+                        component: CrudPersonasComponent
+                    }
+                ] )
             ],
-            providers: [PersonasApi]
+            providers: [PersonasApi,
+                { provide: APP_BASE_HREF, useValue: '/' }]
         });
         TestBed.compileComponents();
     });
@@ -42,16 +58,4 @@ describe( 'AppComponent', () => {
         expect( app ).toBeTruthy();
     }) );
 
-    it( `should have as title 'Prueba Concepto API RESTful'`, async(() => {
-        const fixture = TestBed.createComponent( AppComponent );
-        const app = fixture.debugElement.componentInstance;
-        expect( app.title ).toEqual( 'Prueba Concepto API RESTful' );
-    }) );
-
-    it( 'should render title in a h4 tag', async(() => {
-        const fixture = TestBed.createComponent( AppComponent );
-        fixture.detectChanges();
-        const compiled = fixture.debugElement.nativeElement;
-        expect( compiled.querySelector( 'h4' ).textContent ).toContain( 'Prueba Concepto API RESTful' );
-    }) );
 });

@@ -1,25 +1,18 @@
-<div class="container-fluid">
-	<div class="row">
-		<div class="col-sm-12">
-			<div class="panel panel-primary">
-				<div class="panel-heading text-right">
-					<span class="text-left"><h4><strong>{{title}}</strong></h4></span>
-					{{entorno}}
-				</div>
-			</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="#">Full-Stack Demo APP</a>
 		</div>
+		<ul class="nav navbar-nav">
+			<li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Demos<span class="caret"></span></a>
+				<ul class="dropdown-menu">
+					<li><a routerLink="/crud-personas">CRUD Personas</a></li>
+				</ul>
+			</li>
+		</ul>
+		<ul class="nav navbar-nav navbar-right">
+			<p class="navbar-text">{{entorno}}</p>
+		</ul>
 	</div>
-	<div class="row">
-		<div class="col-sm-3">
-			<app-add-persona>app-add-persona...</app-add-persona>
-			<app-update-persona>app-update-persona...</app-update-persona>
-		</div>
-		<div class="col-sm-3">
-			<app-find-persona>app-find-persona...</app-find-persona>
-			<app-delete-persona>app-delete-persona...</app-delete-persona>
-		</div>
-		<div class="col-sm-6">
-			<app-list-personas>app-list-personas...</app-list-personas>
-		</div>
-	</div>
-</div>
+</nav>
+<router-outlet></router-outlet>
