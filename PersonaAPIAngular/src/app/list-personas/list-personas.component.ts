@@ -21,7 +21,7 @@ export class ListPersonasComponent implements OnInit {
     cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
-        this.resultadoMSG = "";
+        this.resultadoMSG = '';
     }
 
     init() {
@@ -34,31 +34,24 @@ export class ListPersonasComponent implements OnInit {
     }
 
     onSubmit() {
-        try {
-            this.api.findAllPersonas().subscribe(
-                response => {
-                    this.listaPersonas = response;
-                    this.resultOK = true;
-                    this.resultERR = false;
-                    this.resultadoMSG = "Listado actualizado correctamente";
-                    console.log( response );
-                },
-                err => {
-                    this.resultOK = false;
-                    this.resultERR = true;
-                    this.resultadoMSG = "Error buscando personas (status:" + err.status + ")";
-                    console.error( err );
-                },
-                () => {
-                    console.log( "Fin observable" );
-                }
-            );
-        }
-        catch ( error ) {
-            this.resultOK = false;
-            this.resultERR = true;
-            this.resultadoMSG = "Error [" + error.message + "]";
-        }
+        this.api.findAllPersonas().subscribe(
+            response => {
+                this.listaPersonas = response;
+                this.resultOK = true;
+                this.resultERR = false;
+                this.resultadoMSG = 'Listado actualizado correctamente';
+                console.log( response );
+            },
+            err => {
+                this.resultOK = false;
+                this.resultERR = true;
+                this.resultadoMSG = 'Error buscando personas (status:' + err.status + ')';
+                console.error( err );
+            },
+            () => {
+                console.log( 'Fin observable' );
+            }
+        );
     }
 
 }

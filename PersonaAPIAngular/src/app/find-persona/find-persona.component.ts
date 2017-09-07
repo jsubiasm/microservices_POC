@@ -21,11 +21,11 @@ export class FindPersonaComponent implements OnInit {
     cleanMsg() {
         this.resultOK = false;
         this.resultERR = false;
-        this.resultadoMSG = "";
+        this.resultadoMSG = '';
     }
 
     init() {
-        this.persona = { id: "", nombre: "", profesion: "" };
+        this.persona = { id: '', nombre: '', profesion: '' };
         this.cleanMsg();
     }
 
@@ -34,31 +34,24 @@ export class FindPersonaComponent implements OnInit {
     }
 
     onSubmit() {
-        try {
-            this.api.getPersonaPorId( this.persona.id ).subscribe(
-                response => {
-                    this.persona = response;
-                    this.resultOK = true;
-                    this.resultERR = false;
-                    this.resultadoMSG = "Persona encontrada";
-                    console.log( response );
-                },
-                err => {
-                    this.resultOK = false;
-                    this.resultERR = true;
-                    this.resultadoMSG = "Error buscando persona (status:" + err.status + ")";
-                    console.error( err );
-                },
-                () => {
-                    console.log( "Fin observable" );
-                }
-            );
-        }
-        catch ( error ) {
-            this.resultOK = false;
-            this.resultERR = true;
-            this.resultadoMSG = "Error [" + error.message + "]";
-        }
+        this.api.getPersonaPorId( this.persona.id ).subscribe(
+            response => {
+                this.persona = response;
+                this.resultOK = true;
+                this.resultERR = false;
+                this.resultadoMSG = 'Persona encontrada';
+                console.log( response );
+            },
+            err => {
+                this.resultOK = false;
+                this.resultERR = true;
+                this.resultadoMSG = 'Error buscando persona (status:' + err.status + ')';
+                console.error( err );
+            },
+            () => {
+                console.log( 'Fin observable' );
+            }
+        );
     }
 
 }

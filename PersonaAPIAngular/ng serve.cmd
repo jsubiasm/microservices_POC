@@ -1,3 +1,3 @@
 @echo off
-call ng serve
+call ng serve --progress=false
 pause

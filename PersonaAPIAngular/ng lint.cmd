@@ -1,3 +1,3 @@
 @echo off
-call ng lint
+call ng lint --type-check=true
 pause
