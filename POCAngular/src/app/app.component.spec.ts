@@ -9,12 +9,15 @@ import { RouterModule } from '@angular/router';
 import { APP_BASE_HREF } from '@angular/common';
 
 import { AppComponent } from './app.component';
+import { AboutComponent } from './about/about.component';
 import { CrudPersonasComponent } from './crud-personas/crud-personas.component';
 import { AddPersonaComponent } from './crud-personas/add-persona/add-persona.component';
 import { UpdatePersonaComponent } from './crud-personas/update-persona/update-persona.component';
 import { FindPersonaComponent } from './crud-personas/find-persona/find-persona.component';
 import { DeletePersonaComponent } from './crud-personas/delete-persona/delete-persona.component';
 import { ListPersonasComponent } from './crud-personas/list-personas/list-personas.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import { PersonasApi } from '../api/PersonasApi';
 
@@ -23,6 +26,7 @@ describe( 'AppComponent', () => {
         TestBed.configureTestingModule( {
             declarations: [
                 AppComponent,
+                AboutComponent,
                 CrudPersonasComponent,
                 AddPersonaComponent,
                 UpdatePersonaComponent,
@@ -34,17 +38,7 @@ describe( 'AppComponent', () => {
                 BrowserModule,
                 FormsModule,
                 HttpModule,
-                RouterModule.forRoot( [
-                    {
-                        path: '',
-                        redirectTo: '/crud-personas',
-                        pathMatch: 'full'
-                    },
-                    {
-                        path: 'crud-personas',
-                        component: CrudPersonasComponent
-                    }
-                ] )
+                AppRoutingModule
             ],
             providers: [PersonasApi,
                 { provide: APP_BASE_HREF, useValue: '/' }]
