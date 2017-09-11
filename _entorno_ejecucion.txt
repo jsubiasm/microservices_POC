@@ -32,7 +32,7 @@ docker run -d --restart unless-stopped -p 27017:27017 --name mongo -v $(pwd)/mon
 
 
 --- Ejecutar MongoUI:
-docker run -d --restart unless-stopped -p 8081:8081 --name mongoui --link mongo:mongoui mongo-express
+docker run -d --restart unless-stopped -p 88:8081 --name mongo-express --link mongo:mongo-express mongo-express
 User: admin
 Pass: pass
 
