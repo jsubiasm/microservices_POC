@@ -12,7 +12,8 @@ import { FindPersonaComponent } from './crud-personas/find-persona/find-persona.
 import { DeletePersonaComponent } from './crud-personas/delete-persona/delete-persona.component';
 import { ListPersonasComponent } from './crud-personas/list-personas/list-personas.component';
 
-import { AppRoutingModule } from './app-routing.module';
+//import { AppRoutingModule } from './app-routing.module';
+import { RouterModule } from '@angular/router';
 
 import { PersonasApi } from '../api/PersonasApi';
 
@@ -31,7 +32,12 @@ import { PersonasApi } from '../api/PersonasApi';
         BrowserModule,
         FormsModule,
         HttpModule,
-        AppRoutingModule
+        //AppRoutingModule
+        RouterModule.forRoot( [
+            { path: 'crud-personas', component: CrudPersonasComponent },
+            { path: 'about', component: AboutComponent },
+            { path: '', redirectTo: '/about', pathMatch: 'full' }
+        ] )
     ],
     providers: [PersonasApi],
     bootstrap: [AppComponent]
