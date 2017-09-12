@@ -1,0 +1,20 @@
+server:
+  port: 89
+  
+spring:
+  application:
+    name: zuul
+    
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+      
+zuul:
+  routes:
+    persona:
+      path: /v1/persona/**
+      stripPrefix: false
+      url: http://192.168.56.101:85
+      
