@@ -1,23 +1,40 @@
+
+# log level
+logging:
+  file: zuul.log
+  level:
+    root: DEBUG    
+
+# ports
 server:
   port: 89
-  
+management:
+  port: 90
+
+# app name
 spring:
   application:
     name: zuul
-    
+
+# eureka enabled
 eureka:
   client:
     enabled: false
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
-      
+      defaultZone: http://localhost:91/eureka/    
+
+# routes
 zuul:
   routes:
     persona:
       path: /v1/persona/**
       stripPrefix: false
-      url: http://192.168.56.101:85
+      url: http://localhost:85
 
-logging:
-  level:
-    root: DEBUG
+# actuator endpoints
+endpoints:
+  enabled: true
+  sensitive: false
+  shutdown:
+    enabled: true
+    sensitive: false 
