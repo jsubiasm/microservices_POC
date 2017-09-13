@@ -6,5 +6,5 @@ sudo docker rm persona-api-boot
 sudo docker image rm jsubiasm/persona-api-boot
 cd ./docker
 sudo docker build -t jsubiasm/persona-api-boot .
-sudo docker run -d --restart unless-stopped --name persona-api-boot -p 85:85 -t jsubiasm/persona-api-boot
+sudo docker run -d --restart unless-stopped --name persona-api-boot -p 10006:10007 -t jsubiasm/persona-api-boot
 echo '--- FIN docker_run.sh ---'

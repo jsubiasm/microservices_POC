@@ -7,7 +7,7 @@ logging:
 
 # ports
 server:
-  port: 85
+  port: 10007
   contextPath: /v1
 
 # app config

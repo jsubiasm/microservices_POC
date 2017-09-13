@@ -7,27 +7,12 @@ logging:
 
 # ports
 server:
-  port: 89
+  port: 10008
 
 # app name
 spring:
   application:
     name: zuul
-
-# eureka enabled
-eureka:
-  client:
-    enabled: false
-    serviceUrl:
-      defaultZone: http://localhost:91/eureka/    
-
-# routes
-zuul:
-  routes:
-    persona:
-      path: /v1/persona/**
-      stripPrefix: false
-      url: http://localhost:85
 
 # actuator endpoints
 endpoints:

@@ -6,5 +6,5 @@
 export const environment = {
     production: false,
     entorno: 'Desarrollo',
-    personasApiDefaultPath: 'http://localhost:89/v1',
+    personasApiDefaultPath: 'http://localhost:10008/v1',
 };

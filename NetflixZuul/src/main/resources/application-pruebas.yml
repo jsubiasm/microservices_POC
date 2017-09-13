@@ -1,0 +1,15 @@
+
+# eureka enabled
+eureka:
+  client:
+    enabled: false
+    serviceUrl:
+      defaultZone: http://localhost:10009/eureka/    
+
+# routes
+zuul:
+  routes:
+    persona:
+      path: /v1/persona/**
+      stripPrefix: false
+      url: http://192.168.56.101:10007

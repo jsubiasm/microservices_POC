@@ -1,18 +1,18 @@
 --- Ejecutar Swagger:
 
-docker run -d --restart unless-stopped --name swagger-editor -p 81:8080 swaggerapi/swagger-editor
+docker run -d --restart unless-stopped --name swagger-editor -p 10001:8080 swaggerapi/swagger-editor
 
 
 --- Ejecutar Imposter (mock server):
 
 cd /home/jsubiasm/microservices_POC
-docker run -d --restart unless-stopped --name imposter-openapi -ti -p 82:8443 -v $(pwd)/imposter:/opt/imposter/config outofcoffee/imposter-openapi
+docker run -d --restart unless-stopped --name imposter-openapi -ti -p 10002:8443 -v $(pwd)/imposter:/opt/imposter/config outofcoffee/imposter-openapi
 
 
 --- Ejecutar Jenkins:
 
 cd /home/jsubiasm/microservices_POC
-docker run -d --restart unless-stopped --name jenkins -p 83:8080 -p 50000:50000 -v $(pwd)/jenkins:/var/jenkins_home jenkins
+docker run -d --restart unless-stopped --name jenkins -p 10003:8080 -p 50000:50000 -v $(pwd)/jenkins:/var/jenkins_home jenkins
 User: admin
 Pass: admin
 
@@ -20,7 +20,7 @@ Pass: admin
 --- Ejecutar RabbitMQ:
 
 docker run -d --restart unless-stopped --hostname rabbithost --name rabbitdaemn rabbitmq:3
-docker run -d --restart unless-stopped --hostname rabbithost --name rabbitmngmt -p 84:15672 rabbitmq:3-management
+docker run -d --restart unless-stopped --hostname rabbithost --name rabbitmngmt -p 10004:15672 rabbitmq:3-management
 User: guest
 Pass: guest
 
@@ -32,7 +32,7 @@ docker run -d --restart unless-stopped -p 27017:27017 --name mongo -v $(pwd)/mon
 
 
 --- Ejecutar MongoUI:
-docker run -d --restart unless-stopped -p 88:8081 --name mongo-express --link mongo:mongo-express mongo-express
+docker run -d --restart unless-stopped -p 10005:8081 --name mongo-express --link mongo:mongo-express mongo-express
 User: admin
 Pass: pass
 

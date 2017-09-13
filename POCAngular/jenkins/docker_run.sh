@@ -10,5 +10,5 @@ sudo docker rm poc-angular
 sudo docker image rm jsubiasm/poc-angular
 cd ./docker
 sudo docker build -t jsubiasm/poc-angular .
-sudo docker run -d --restart unless-stopped --name poc-angular -p 86:80 -t jsubiasm/poc-angular
+sudo docker run -d --restart unless-stopped --name poc-angular -p 10008:80 -t jsubiasm/poc-angular
 echo '--- FIN docker_run.sh ---'
