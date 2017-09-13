@@ -12,4 +12,4 @@ zuul:
     persona:
       path: /v1/persona/**
       stripPrefix: false
-      url: http://localhost:10007
+      url: http://localhost:10006
