@@ -1,0 +1,17 @@
+
+http://localhost:91/actuator
+http://localhost:91/auditevents
+http://localhost:91/autoconfig
+http://localhost:91/beans
+http://localhost:91/configprops
+http://localhost:91/dump
+http://localhost:91/env
+http://localhost:91/flyway
+http://localhost:91/health
+http://localhost:91/info
+http://localhost:91/loggers
+http://localhost:91/liquibase
+http://localhost:91/metrics
+http://localhost:91/mappings
+http://localhost:91/shutdown
+http://localhost:91/trace

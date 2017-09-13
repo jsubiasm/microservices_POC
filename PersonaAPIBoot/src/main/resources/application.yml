@@ -1,0 +1,31 @@
+
+# log level
+logging:
+  file: personaapi.log
+  level:
+    root: DEBUG    
+
+# ports
+server:
+  port: 85
+  contextPath: /v1
+management:
+  port: 91
+
+# app config
+spring:
+  data:
+    mongodb:
+      host: 192.168.56.101
+      port: 27017
+      database: personas
+  application:
+    name: personaapi
+
+# actuator endpoints
+endpoints:
+  enabled: true
+  sensitive: false
+  shutdown:
+    enabled: true
+    sensitive: false 

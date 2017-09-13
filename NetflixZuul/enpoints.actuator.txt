@@ -1,0 +1,17 @@
+
+http://localhost:90/actuator
+http://localhost:90/auditevents
+http://localhost:90/autoconfig
+http://localhost:90/beans
+http://localhost:90/configprops
+http://localhost:90/dump
+http://localhost:90/env
+http://localhost:90/flyway
+http://localhost:90/health
+http://localhost:90/info
+http://localhost:90/loggers
+http://localhost:90/liquibase
+http://localhost:90/metrics
+http://localhost:90/mappings
+http://localhost:90/shutdown
+http://localhost:90/trace
