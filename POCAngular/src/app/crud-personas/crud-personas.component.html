@@ -11,16 +11,25 @@
 		</div>
 	</div>
 	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-info">
+				<div class="panel-heading text-left">
+					<strong>Endpoint:</strong>&nbsp;&nbsp;<input [(ngModel)]="personasApiBasePath" type="text" size="40" />
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div class="row">
 		<div class="col-sm-3">
-			<app-add-persona>app-add-persona...</app-add-persona>
-			<app-update-persona>app-update-persona...</app-update-persona>
+			<app-add-persona [personasApiBasePath]="personasApiBasePath">app-add-persona...</app-add-persona>
+			<app-update-persona [personasApiBasePath]="personasApiBasePath">app-update-persona...</app-update-persona>
 		</div>
 		<div class="col-sm-3">
-			<app-find-persona>app-find-persona...</app-find-persona>
-			<app-delete-persona>app-delete-persona...</app-delete-persona>
+			<app-find-persona [personasApiBasePath]="personasApiBasePath">app-find-persona...</app-find-persona>
+			<app-delete-persona [personasApiBasePath]="personasApiBasePath">app-delete-persona...</app-delete-persona>
 		</div>
 		<div class="col-sm-6">
-			<app-list-personas>app-list-personas...</app-list-personas>
+			<app-list-personas [personasApiBasePath]="personasApiBasePath">app-list-personas...</app-list-personas>
 		</div>
 	</div>
 </div>

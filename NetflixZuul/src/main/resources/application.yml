@@ -17,4 +17,7 @@ zuul:
       path: /v1/persona/**
       stripPrefix: false
       url: http://192.168.56.101:85
-      
+
+logging:
+  level:
+    root: DEBUG

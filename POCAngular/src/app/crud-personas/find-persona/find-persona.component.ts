@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { InlineResponse200 } from '../../../model/InlineResponse200';
 import { PersonasApi } from '../../../api/PersonasApi';
@@ -9,6 +9,8 @@ import { PersonasApi } from '../../../api/PersonasApi';
     styleUrls: ['./find-persona.component.css']
 })
 export class FindPersonaComponent implements OnInit {
+
+    @Input( 'personasApiBasePath' ) personasApiBasePath: string;
 
     persona: InlineResponse200;
     resultOK: boolean;
@@ -34,6 +36,7 @@ export class FindPersonaComponent implements OnInit {
     }
 
     onSubmit() {
+        this.api.basePath = this.personasApiBasePath;
         this.api.getPersonaPorId( this.persona.id ).subscribe(
             response => {
                 this.persona = response;

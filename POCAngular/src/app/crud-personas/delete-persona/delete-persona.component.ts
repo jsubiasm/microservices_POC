@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { Persona } from '../../../model/Persona';
 import { PersonasApi } from '../../../api/PersonasApi';
@@ -9,6 +9,8 @@ import { PersonasApi } from '../../../api/PersonasApi';
     styleUrls: ['./delete-persona.component.css']
 })
 export class DeletePersonaComponent implements OnInit {
+
+    @Input( 'personasApiBasePath' ) personasApiBasePath: string;
 
     persona: Persona;
     resultOK: boolean;
@@ -34,6 +36,7 @@ export class DeletePersonaComponent implements OnInit {
     }
 
     onSubmit() {
+        this.api.basePath = this.personasApiBasePath;
         this.api.deletePersona( this.persona.id ).subscribe(
             response => {
                 this.persona = response;

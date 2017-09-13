@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 import { UpdatePersonaBody } from '../../../model/UpdatePersonaBody';
 import { PersonasApi } from '../../../api/PersonasApi';
@@ -9,6 +9,8 @@ import { PersonasApi } from '../../../api/PersonasApi';
     styleUrls: ['./update-persona.component.css']
 })
 export class UpdatePersonaComponent implements OnInit {
+
+    @Input( 'personasApiBasePath' ) personasApiBasePath: string;
 
     persona: UpdatePersonaBody;
     resultOK: boolean;
@@ -34,6 +36,7 @@ export class UpdatePersonaComponent implements OnInit {
     }
 
     onSubmit() {
+        this.api.basePath = this.personasApiBasePath;
         this.api.updatePersona( this.persona ).subscribe(
             response => {
                 this.persona = response;

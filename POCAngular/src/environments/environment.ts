@@ -4,7 +4,7 @@
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
 export const environment = {
-  production: false,
-  entorno: 'Desarrollo',
-  PersonasApiBasePath: 'http://localhost:85/v1',
+    production: false,
+    entorno: 'Desarrollo',
+    personasApiDefaultPath: 'http://localhost:89/v1',
 };

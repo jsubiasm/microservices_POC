@@ -24,14 +24,10 @@ import * as models                                           from '../model/mode
 import { BASE_PATH, COLLECTION_FORMATS }                     from '../variables';
 import { Configuration }                                     from '../configuration';
 
-import { environment } from '../environments/environment';
-
-
 @Injectable()
 export class PersonasApi {
 
-    protected basePath = environment.PersonasApiBasePath;
-    
+    public basePath = null;
     public defaultHeaders: Headers = new Headers();
     public configuration: Configuration = new Configuration();
 

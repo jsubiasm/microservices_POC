@@ -7,7 +7,7 @@ import { AboutComponent } from './about/about.component';
 const routes: Routes = [
     { path: 'crud-personas', component: CrudPersonasComponent },
     { path: 'about', component: AboutComponent },
-    { path: '', redirectTo: '/about', pathMatch: 'full' }
+    { path: '', redirectTo: '/crud-personas', pathMatch: 'full' }
 ];
 
 @NgModule( {
