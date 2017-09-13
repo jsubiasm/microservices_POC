@@ -8,8 +8,6 @@ logging:
 # ports
 server:
   port: 89
-management:
-  port: 90
 
 # app name
 spring:

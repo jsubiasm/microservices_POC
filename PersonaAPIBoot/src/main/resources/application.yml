@@ -9,8 +9,6 @@ logging:
 server:
   port: 85
   contextPath: /v1
-management:
-  port: 91
 
 # app config
 spring:
