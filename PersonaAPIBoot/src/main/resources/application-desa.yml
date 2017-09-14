@@ -1,10 +1,14 @@
 
 # ports
 server:
-  port: 10006
+  port: 0
 
 # eureka enabled
 eureka:
+  instance:
+    statusPageUrlPath: /v1/info
+    healthCheckUrlPath: /v1/health
+    instanceId: personaapi.${random.value}
   client:
     healthcheck:
       enabled: true  

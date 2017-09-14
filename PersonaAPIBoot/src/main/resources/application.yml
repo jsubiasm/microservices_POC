@@ -1,7 +1,7 @@
 
 # log level
 logging:
-  file: personaapi.log
+  file: ___personaapi.${random.value}.log
   level:
     root: DEBUG    
 

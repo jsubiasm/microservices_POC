@@ -1,7 +1,7 @@
 
 # log level
 logging:
-  file: eureka.log
+  file: ___eureka.log
   level:
     root: DEBUG
 
@@ -12,17 +12,20 @@ spring:
 
 # port
 server:
-  port: 10010
-
-# eureka
+  port: 10010 
+      
+# eureka enabled
 eureka:
   instance:
-    hostname: localhost
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    # registerWithEureka: false
+    # fetchRegistry: false
+    healthcheck:
+      enabled: true  
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    
+      defaultZone: http://localhost:10010/eureka/       
 
 # actuator endpoints
 endpoints:

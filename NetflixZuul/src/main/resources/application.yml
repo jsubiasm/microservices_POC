@@ -1,7 +1,7 @@
 
 # log level
 logging:
-  file: zuul.log
+  file: ___zuul.log
   level:
     root: DEBUG    
 
