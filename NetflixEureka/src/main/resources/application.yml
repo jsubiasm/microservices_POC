@@ -1,0 +1,33 @@
+
+# log level
+logging:
+  file: eureka.log
+  level:
+    root: DEBUG
+
+# app name
+spring:
+  application:
+    name: eureka
+
+# port
+server:
+  port: 10010
+
+# eureka
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/    
+
+# actuator endpoints
+endpoints:
+  enabled: true
+  sensitive: false
+  shutdown:
+    enabled: true
+    sensitive: false 

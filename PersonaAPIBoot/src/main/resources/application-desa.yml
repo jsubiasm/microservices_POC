@@ -1,4 +1,8 @@
 
+# ports
+server:
+  port: 10006
+
 # eureka enabled
 eureka:
   client:
@@ -6,11 +10,3 @@ eureka:
       enabled: true  
     serviceUrl:
       defaultZone: http://localhost:10010/eureka/    
-
-# routes
-zuul:
-  routes:
-    persona:
-      path: /v1/persona/**
-      stripPrefix: false
-      serviceId: PERSONAAPI

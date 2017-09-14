@@ -5,9 +5,8 @@ logging:
   level:
     root: DEBUG    
 
-# ports
+# context path
 server:
-  port: 10006
   contextPath: /v1
 
 # app config

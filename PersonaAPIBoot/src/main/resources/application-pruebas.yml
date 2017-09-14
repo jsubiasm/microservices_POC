@@ -1,0 +1,9 @@
+
+# ports
+server:
+  port: 10006
+
+# eureka enabled
+eureka:
+  client:
+    enabled: false  
