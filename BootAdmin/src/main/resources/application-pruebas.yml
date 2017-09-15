@@ -1,0 +1,5 @@
+
+# eureka enabled
+eureka:
+  client:
+    enabled: false  

@@ -1,0 +1,23 @@
+
+# log level
+logging:
+  file: ___bootadmin.log
+  level:
+    root: DEBUG    
+
+# ports
+server:
+  port: 10012
+
+# app name
+spring:
+  application:
+    name: bootadmin
+
+# actuator endpoints
+endpoints:
+  enabled: true
+  sensitive: false
+  shutdown:
+    enabled: true
+    sensitive: false 
