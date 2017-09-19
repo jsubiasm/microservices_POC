@@ -8,6 +8,6 @@ eureka:
 zuul:
   routes:
     persona:
-      path: /v1/persona/**
-      stripPrefix: false
+      path: /v1/**
+      stripPrefix: true
       url: http://192.168.56.101:10007

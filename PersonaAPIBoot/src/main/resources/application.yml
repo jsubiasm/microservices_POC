@@ -6,8 +6,8 @@ logging:
     root: DEBUG    
 
 # context path
-server:
-  contextPath: /v1
+# server:
+#  contextPath: /v1
 
 # app config
 spring:

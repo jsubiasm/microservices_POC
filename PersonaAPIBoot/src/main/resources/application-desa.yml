@@ -6,8 +6,6 @@ server:
 # eureka enabled
 eureka:
   instance:
-    statusPageUrlPath: /v1/info
-    healthCheckUrlPath: /v1/health
     instanceId: personaapi.${random.value}
   client:
     healthcheck:
