@@ -3,7 +3,7 @@
 logging:
   file: ___zuul.log
   level:
-    root: DEBUG    
+    root: INFO    
 
 # ports
 server:

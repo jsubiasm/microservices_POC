@@ -3,7 +3,7 @@
 logging:
   file: ___bootadmin.log
   level:
-    root: DEBUG    
+    root: INFO    
 
 # ports
 server:
