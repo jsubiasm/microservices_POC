@@ -3,7 +3,7 @@
 logging:
   file: ___personaapi.${random.value}.log
   level:
-    root: INFO    
+    root: DEBUG    
 
 
 # ports

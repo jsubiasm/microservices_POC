@@ -3,7 +3,7 @@
 logging:
   file: ___eureka.log
   level:
-    root: INFO
+    root: DEBUG
 
 # app name
 spring:

@@ -9,4 +9,4 @@ eureka:
     healthcheck:
       enabled: true  
     serviceUrl:
-      defaultZone: http://192.168.56.101:10013/eureka/
+      defaultZone: http://localhost:10013/eureka/
