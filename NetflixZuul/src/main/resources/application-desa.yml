@@ -1,4 +1,3 @@
-
 # eureka enabled
 eureka:
   instance:
@@ -8,7 +7,7 @@ eureka:
     healthcheck:
       enabled: true  
     serviceUrl:
-      defaultZone: http://localhost:10010/eureka/     
+      defaultZone: http://localhost:10013/eureka/     
 
 # routes
 zuul:

@@ -1,12 +1,13 @@
 
-# ports
-server:
-  port: 10006
-
 # eureka enabled
 eureka:
+  instance:
+    instanceId: personaapi.${random.value}
   client:
-    enabled: false  
+    healthcheck:
+      enabled: true  
+    serviceUrl:
+      defaultZone: http://192.168.56.101:10013/eureka/    
 
 # mongodb
 spring:

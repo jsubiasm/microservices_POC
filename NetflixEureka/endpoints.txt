@@ -1,19 +1,19 @@
 
-http://localhost:10010/eureka/apps
+http://localhost:10013/eureka/apps
 
-http://localhost:10010/actuator
-http://localhost:10010/auditevents
-http://localhost:10010/autoconfig
-http://localhost:10010/beans
-http://localhost:10010/configprops
-http://localhost:10010/dump
-http://localhost:10010/env
-http://localhost:10010/flyway
-http://localhost:10010/health
-http://localhost:10010/info
-http://localhost:10010/loggers
-http://localhost:10010/liquibase
-http://localhost:10010/metrics
-http://localhost:10010/mappings
-http://localhost:10010/shutdown
-http://localhost:10010/trace
+http://localhost:10013/actuator
+http://localhost:10013/auditevents
+http://localhost:10013/autoconfig
+http://localhost:10013/beans
+http://localhost:10013/configprops
+http://localhost:10013/dump
+http://localhost:10013/env
+http://localhost:10013/flyway
+http://localhost:10013/health
+http://localhost:10013/info
+http://localhost:10013/loggers
+http://localhost:10013/liquibase
+http://localhost:10013/metrics
+http://localhost:10013/mappings
+http://localhost:10013/shutdown
+http://localhost:10013/trace

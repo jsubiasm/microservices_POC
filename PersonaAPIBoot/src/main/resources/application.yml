@@ -5,6 +5,11 @@ logging:
   level:
     root: DEBUG    
 
+
+# ports
+server:
+  port: 10006
+
 # context path
 # server:
 #  contextPath: /v1

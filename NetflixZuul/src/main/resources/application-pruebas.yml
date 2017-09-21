@@ -1,8 +1,13 @@
-
 # eureka enabled
 eureka:
+  instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health
   client:
-    enabled: false  
+    healthcheck:
+      enabled: true  
+    serviceUrl:
+      defaultZone: http://192.168.56.101:10013/eureka/     
 
 # routes
 zuul:
@@ -10,4 +15,4 @@ zuul:
     persona:
       path: /v1/**
       stripPrefix: true
-      url: http://192.168.56.101:10007
+      serviceId: PERSONAAPI
