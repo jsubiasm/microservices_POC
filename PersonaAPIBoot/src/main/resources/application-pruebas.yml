@@ -11,15 +11,12 @@ eureka:
     serviceUrl:
       defaultZone: http://192.168.56.101:10013/eureka/    
 
-# mongodb
+# spring
 spring:
+  zipkin:
+    baseUrl: http://192.168.56.101:10014/
   data:
     mongodb:
       host: 192.168.56.101
       port: 27017
       database: personas
-
-# zipkin
-spring:
-  zipkin:
-    baseUrl: http://192.168.56.101:10014/
