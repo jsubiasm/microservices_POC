@@ -13,3 +13,8 @@ eureka:
 management:
   security:
     enabled: false
+
+# zipkin
+spring:
+  zipkin:
+    baseUrl: http://192.168.56.101:10014/

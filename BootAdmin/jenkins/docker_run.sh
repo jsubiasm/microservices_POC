@@ -6,5 +6,5 @@ sudo docker rm boot-admin
 sudo docker image rm jsubiasm/boot-admin
 cd ./docker
 sudo docker build -t jsubiasm/boot-admin .
-sudo docker run -d --restart unless-stopped --name boot-admin -P --network="host" -t jsubiasm/boot-admin
+sudo docker run -d --name boot-admin -P --network="host" -t jsubiasm/boot-admin
 echo '--- FIN docker_run.sh ---'

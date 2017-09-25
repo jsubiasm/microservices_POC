@@ -6,5 +6,5 @@ sudo docker rm netflix-eureka
 sudo docker image rm jsubiasm/netflix-eureka
 cd ./docker
 sudo docker build -t jsubiasm/netflix-eureka .
-sudo docker run -d --restart unless-stopped --name netflix-eureka -P --network="host" -t jsubiasm/netflix-eureka
+sudo docker run -d --name netflix-eureka -P --network="host" -t jsubiasm/netflix-eureka
 echo '--- FIN docker_run.sh ---'

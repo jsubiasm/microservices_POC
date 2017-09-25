@@ -6,5 +6,5 @@ sudo docker rm netflix-zuul
 sudo docker image rm jsubiasm/netflix-zuul
 cd ./docker
 sudo docker build -t jsubiasm/netflix-zuul .
-sudo docker run -d --restart unless-stopped --name netflix-zuul -P --network="host" -t jsubiasm/netflix-zuul
+sudo docker run -d --name netflix-zuul -P --network="host" -t jsubiasm/netflix-zuul
 echo '--- FIN docker_run.sh ---'

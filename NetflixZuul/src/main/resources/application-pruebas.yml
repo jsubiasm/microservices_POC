@@ -16,3 +16,8 @@ zuul:
       path: /v1/**
       stripPrefix: true
       serviceId: PERSONAAPI
+
+# zipkin
+spring:
+  zipkin:
+    baseUrl: http://192.168.56.101:10014/
