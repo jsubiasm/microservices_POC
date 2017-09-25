@@ -9,11 +9,6 @@ logging:
 server:
   port: 10012
 
-# app name
-spring:
-  application:
-    name: bootadmin
-
 # actuator endpoints
 endpoints:
   enabled: true

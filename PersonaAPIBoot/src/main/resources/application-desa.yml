@@ -2,6 +2,8 @@
 # eureka enabled
 eureka:
   instance:
+    statusPageUrlPath: /info
+    healthCheckUrlPath: /health  
     instanceId: personaapi.${random.value}
   client:
     healthcheck:
@@ -9,8 +11,10 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:10013/eureka/    
 
-# mongodb
+# spring
 spring:
+  zipkin:
+    baseUrl: http://localhost:10014/
   data:
     mongodb:
       host: localhost

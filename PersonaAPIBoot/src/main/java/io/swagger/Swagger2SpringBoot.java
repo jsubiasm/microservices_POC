@@ -5,6 +5,8 @@ import org.springframework.boot.ExitCodeGenerator;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
@@ -43,4 +45,11 @@ public class Swagger2SpringBoot implements CommandLineRunner
 		}
 
 	}
+
+	@Bean
+	public AlwaysSampler defaultSampler()
+	{
+		return new AlwaysSampler();
+	}
+
 }

@@ -13,3 +13,8 @@ eureka:
 management:
   security:
     enabled: false
+
+# zipkin
+spring:
+  zipkin:
+    baseUrl: http://localhost:10014/

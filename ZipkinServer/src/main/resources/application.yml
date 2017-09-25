@@ -1,13 +1,13 @@
 
 # log level
 logging:
-  file: ___zuul.log
+  file: ___zipkin.log
   level:
     root: DEBUG    
 
 # ports
 server:
-  port: 10008
+  port: 10014
 
 # actuator endpoints
 endpoints:

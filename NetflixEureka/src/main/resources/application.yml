@@ -5,11 +5,6 @@ logging:
   level:
     root: DEBUG
 
-# app name
-spring:
-  application:
-    name: eureka
-
 # port
 server:
   port: 10013    

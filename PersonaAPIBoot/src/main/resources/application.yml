@@ -14,11 +14,6 @@ server:
 # server:
 #  contextPath: /v1
 
-# app config
-spring:
-  application:
-    name: personaapi
-
 # actuator endpoints
 endpoints:
   enabled: true
