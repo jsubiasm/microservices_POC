@@ -1,5 +1,5 @@
 
 # zipkin
-spring:
-  zipkin:
-    baseUrl: http://localhost:10014/
+# spring:
+#   zipkin:
+#     baseUrl: http://localhost:10014/

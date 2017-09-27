@@ -10,9 +10,3 @@ eureka:
       enabled: true  
     serviceUrl:
       defaultZone: http://localhost:10013/eureka/
-
-# zipkin
-spring:
-  zipkin:
-    baseUrl: http://localhost:10014/
-      
