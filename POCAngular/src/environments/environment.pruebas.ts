@@ -7,4 +7,11 @@ export const environment = {
     production: false,
     entorno: 'Pruebas',
     personasApiDefaultPath: 'http://192.168.56.101:10008/v1',
+    gitHub: 'https://github.com/jsubiasm/microservices_POC',
+    swaggerEditor: 'https://editor.swagger.io',
+    jenkins: 'http://192.168.56.101:8080',
+    eureka: 'http://192.168.56.101:10013',
+    bootAdmin: 'http://192.168.56.101:10012',
+    zipkin: 'http://192.168.56.101:10014/zipkin',
+    hystrix: 'http://192.168.56.101:10015/hystrix/monitor?stream=http%3A%2F%2F192.168.56.101%3A10015%2Fturbine.stream%3Fcluster%3DZUUL',    
 };

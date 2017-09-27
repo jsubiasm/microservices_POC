@@ -4,8 +4,8 @@
 			<div class="panel panel-primary">
 				<div class="panel-heading text-left">
 					<h4>CRUD Personas</h4>
-					<p><strong>Descripci&oacute;n:</strong> Operaciones b&aacute;sicas de lectura/escritura sobre una entidad.</p> 
-					<p><strong>Entorno tecnol&oacute;gico:</strong> Angular, Swagger, Spring (Boot, Data, Cloud, Netflix), Eureka, Zuul, Ribbon, Docker, MongoDB</p>
+					<p><strong>Descripci&oacute;n: </strong>Operaciones b&aacute;sicas de lectura/escritura sobre una entidad.</p> 
+					<p><strong>Entorno tecnol&oacute;gico: </strong>Angular, Swagger, Spring (Boot, Data, Cloud), Eureka, Zuul, Ribbon, Hystrix, Zipkin, Docker, MongoDB</p>
 				</div>
 			</div>
 		</div>
@@ -30,6 +30,21 @@
 		</div>
 		<div class="col-sm-6">
 			<app-list-personas [personasApiBasePath]="personasApiBasePath">app-list-personas...</app-list-personas>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="panel panel-info">
+				<div class="panel-heading text-left">
+					<p><strong>GitHub: </strong><a href="#" (click)="linkToGitHub()">{{gitHub}}</a></p>
+					<p><strong>Swagger Editor: </strong><a href="#" (click)="linkToSwaggerEditor()">{{swaggerEditor}}</a></p>
+					<p><strong>Jenkins: </strong><a href="#" (click)="linkToJenkins()">{{jenkins}}</a></p>
+					<p><strong>Eureka: </strong><a href="#" (click)="linkToEureka()">{{eureka}}</a></p>
+					<p><strong>Boot Admin: </strong><a href="#" (click)="linkToBootAdmin()">{{bootAdmin}}</a></p>
+					<p><strong>Zipkin: </strong><a href="#" (click)="linkToZipkin()">{{zipkin}}</a></p>
+					<p><strong>Hystrix: </strong><a href="#" (click)="linkToHystrix()">{{hystrix}}</a></p> 
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
