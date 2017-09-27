@@ -9,6 +9,11 @@ logging:
 server:
   port: 10013    
 
+# management
+management:
+  security:
+    enabled: false  
+
 # actuator endpoints
 endpoints:
   enabled: true

@@ -31,6 +31,9 @@ call %MVN_MODULO%
 cd %ROOT_FOLDER%\ZipkinServer
 call %MVN_MODULO%
 
+cd %ROOT_FOLDER%\NetflixHystrix
+call %MVN_MODULO%
+
 echo _______________________________________________________________________________
 echo.
 echo Finalizado

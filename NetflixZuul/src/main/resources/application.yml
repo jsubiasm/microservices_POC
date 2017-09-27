@@ -9,6 +9,11 @@ logging:
 server:
   port: 10008
 
+# management
+management:
+  security:
+    enabled: false  
+
 # actuator endpoints
 endpoints:
   enabled: true

@@ -9,6 +9,11 @@ logging:
 server:
   port: 10012
 
+# management
+management:
+  security:
+    enabled: false
+  
 # actuator endpoints
 endpoints:
   enabled: true
@@ -16,3 +21,10 @@ endpoints:
   shutdown:
     enabled: true
     sensitive: false 
+
+# endpoints
+spring:
+  boot:
+    admin:
+      routes:
+        endpoints: env,metrics,dump,jolokia,info,configprops,trace,logfile,refresh,flyway,liquibase,heapdump,loggers,auditevents,hystrix.stream,activiti

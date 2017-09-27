@@ -1,0 +1,7 @@
+
+HYSTRIX:
+	http://localhost:10008/hystrix.stream
+
+TURBINE:
+	http://localhost:10015/turbine.stream?cluster=ZUUL
+

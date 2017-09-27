@@ -22,7 +22,7 @@ public class SwaggerDocumentationConfig {
             .license("")
             .licenseUrl("http://")
             .termsOfServiceUrl("")
-            .version("1.0.0")
+            .version("0.0.1-SNAPSHOT")
             .contact(new Contact("","", "jotasumin@gmail.com"))
             .build();
     }

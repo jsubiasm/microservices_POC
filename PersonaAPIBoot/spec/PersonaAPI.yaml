@@ -1,7 +1,7 @@
 swagger: '2.0'
 info:
   description: Prueba de concepto de un API RESTful.
-  version: 1.0.0
+  version: 0.0.1-SNAPSHOT
   title: Prueba Concepto API RESTful
   termsOfService: ''
   contact:

@@ -8,6 +8,11 @@ logging:
 # ports
 server:
   port: 10014
+  
+# management
+management:
+  security:
+    enabled: false  
 
 # actuator endpoints
 endpoints:

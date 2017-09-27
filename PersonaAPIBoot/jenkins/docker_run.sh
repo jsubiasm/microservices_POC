@@ -1,6 +1,6 @@
 echo '--- INICIO docker_run.sh ---'
 cd ./PersonaAPIBoot
-sudo cp ./target/PersonaAPIBoot-1.0.0.jar ./docker/PersonaAPIBoot-1.0.0.jar
+sudo cp ./target/PersonaAPIBoot-0.0.1-SNAPSHOT.war ./docker/PersonaAPIBoot-0.0.1-SNAPSHOT.war
 sudo docker stop persona-api-boot-01
 sudo docker stop persona-api-boot-02
 sudo docker rm persona-api-boot-01

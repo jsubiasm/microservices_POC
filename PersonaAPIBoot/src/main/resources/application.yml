@@ -5,14 +5,14 @@ logging:
   level:
     root: DEBUG    
 
-
 # ports
 server:
   port: 0
 
-# context path
-# server:
-#  contextPath: /v1
+# management
+management:
+  security:
+    enabled: false
 
 # actuator endpoints
 endpoints:
